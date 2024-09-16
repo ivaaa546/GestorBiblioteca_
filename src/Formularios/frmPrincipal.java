@@ -29,6 +29,8 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        mnuRegistroAutor = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,6 +44,15 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem1);
+        jMenu1.add(jSeparator1);
+
+        mnuRegistroAutor.setText("Registro Autor");
+        mnuRegistroAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuRegistroAutorActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnuRegistroAutor);
 
         jMenuBar1.add(jMenu1);
 
@@ -72,6 +83,14 @@ public class frmPrincipal extends javax.swing.JFrame {
        
        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void mnuRegistroAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegistroAutorActionPerformed
+        //generamos una instancia al frmRegistroAutores
+        frmRegistroAutores autores = new frmRegistroAutores();
+       this.setVisible(false);//ocultar formulario actual
+       autores.setLocationRelativeTo(null);
+       autores.setVisible(true);
+    }//GEN-LAST:event_mnuRegistroAutorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,5 +132,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JMenuItem mnuRegistroAutor;
     // End of variables declaration//GEN-END:variables
 }
