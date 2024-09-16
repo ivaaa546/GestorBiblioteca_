@@ -44,6 +44,7 @@ public class DatosUsuarios {
         } catch (SQLException ex) {
             Logger.getLogger(DatosUsuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
+        ///
     }
     
     
