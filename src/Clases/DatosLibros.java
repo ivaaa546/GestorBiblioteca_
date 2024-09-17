@@ -85,7 +85,7 @@ public class DatosLibros {
     
     }
 
-    //metodo para obtener id autor
+    //metodo para obtener id autor sirve para agregar 
     public int id_autor(String autor){
     try {
             String sql = "SELECT id_autor FROM autores WHERE nombre = '" + autor + "'";
@@ -104,7 +104,27 @@ public class DatosLibros {
         }
         return 0;
     }
-
+    
+    //para buscar nombre autor por el combobox sirve para buscar    
+    public String nombreAutor(int codigo)
+    {
+        try {
+            String sql= "Select nombre  from autores where id_autor ='" + codigo + "'";
+            Statement st= con.createStatement();
+            ResultSet rs=st.executeQuery(sql);
+            
+            if(rs.next())
+            {
+            
+                return rs.getString("nombre");
+            
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     
     
    //metodo para insetardatos a la base de datos
@@ -125,12 +145,12 @@ public class DatosLibros {
     }
 }
    //metodo para buscar los auotores por medio del id
-   public Libros getLibros(int id)
+   public Libros getLibros(String titulo)
    {    
       
         try {
             Libros lib= null;
-            String sql= "Select * from libros where id_autor= '" + id+ "' ";
+            String sql= "Select * from libros where titulo= '" + titulo+ "' ";
             Statement st = con.createStatement();
             ResultSet rs= st.executeQuery(sql);
             if(rs.next()){
@@ -140,7 +160,6 @@ public class DatosLibros {
                 rs.getString("isbn"),
                 rs.getString("genero"),
                 rs.getInt("id_autor"));
-            
             }
             
         } catch (SQLException ex) {
@@ -168,7 +187,6 @@ public class DatosLibros {
             );
             
         }
-            
             return lib;
         } catch (SQLException ex) {
             Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
@@ -209,13 +227,13 @@ public class DatosLibros {
             return false;
         }
     }   */
-   public boolean actualizarL(Libros lib, String tituloOriginal) {
+   public boolean actualizarL(Libros lib) {
     try {
-        String sql = "UPDATE libros SET titulo = '" + lib.getTitulo() + "', "
+        String sql = "UPDATE libros SET id_libro = '" + lib.getTitulo()+ "', "
+                    + "titulo = '" + lib.getTitulo()+ "', "
                    + "isbn = '" + lib.getIsbn() + "', "
                    + "genero = '" + lib.getGenero() + "', "
-                   + "id_autor = '" + lib.getAutor() + "' "
-                   + "WHERE titulo = '" + tituloOriginal + "'";
+                   + "id_autor = '" + lib.getAutor() + "' ";
 
         Statement st = con.createStatement();
         st.executeUpdate(sql);
@@ -227,9 +245,6 @@ public class DatosLibros {
     }
 }
 
-   
-   
-   
 }
 
 

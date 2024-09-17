@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-09-2024 a las 22:27:57
+-- Tiempo de generación: 17-09-2024 a las 19:09:20
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -41,7 +41,9 @@ CREATE TABLE `autores` (
 
 INSERT INTO `autores` (`id_autor`, `nombre`, `nacionalidad`, `fecha_nacimiento`, `fecha_fallecimiento`) VALUES
 (5, 'Karl Marx', 'Alemana', '1818-05-05 00:00:00', '1818-05-05 00:00:00'),
-(6, 'Milton Friedman', 'estadounidense', '1912-07-31 00:00:00', '1946-11-16 00:00:00');
+(6, 'Milton Friedman', 'estadounidense', '1912-07-31 00:00:00', '1946-11-16 00:00:00'),
+(7, 'Nicolás Bernardo de Maquiavelo', 'italiana', '1469-05-31 00:00:00', '1527-06-21 00:00:00'),
+(8, 'Jose Chub', 'chapin', '2005-09-08 00:00:00', '2100-09-13 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -62,8 +64,23 @@ CREATE TABLE `libros` (
 --
 
 INSERT INTO `libros` (`id_libro`, `titulo`, `isbn`, `genero`, `id_autor`) VALUES
-(1, 'Como bajar de peso (Manifiesto Comunista)', '978 950 563 6', 'Ficción', 5),
-(7, 'Libre para elegir', '978-950-563-6', 'Economia', 6);
+(14, 'El capital', '2131231234', 'Comedia', 5),
+(16, 'Libertad', '42342342342', 'politica', 6),
+(20, 'Pazw', '11111', 'novelae', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `mostralibros`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `mostralibros` (
+`id_libro` int(11)
+,`titulo` varchar(255)
+,`isbn` varchar(13)
+,`genero` varchar(100)
+,`Autores` varchar(50)
+);
 
 -- --------------------------------------------------------
 
@@ -116,6 +133,15 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre`, `tipo_usuario`, `apellido`, `num
 (7, 'Iván', 'Estudiante', 'Icó', '12312312', '15/9/2024', 'Chamelco, zona 2'),
 (8, 'Josue', 'Estudiante', 'Caal', '456454632', '15/9/2024', 'Chamelco, Zona 6');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `mostralibros`
+--
+DROP TABLE IF EXISTS `mostralibros`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `mostralibros`  AS SELECT `b`.`id_libro` AS `id_libro`, `b`.`titulo` AS `titulo`, `b`.`isbn` AS `isbn`, `b`.`genero` AS `genero`, `a`.`nombre` AS `Autores` FROM (`libros` `b` join `autores` `a` on(`b`.`id_autor` = `a`.`id_autor`)) ;
+
 --
 -- Índices para tablas volcadas
 --
@@ -131,8 +157,8 @@ ALTER TABLE `autores`
 --
 ALTER TABLE `libros`
   ADD PRIMARY KEY (`id_libro`),
-  ADD UNIQUE KEY `isbn` (`isbn`),
-  ADD KEY `fk_libro_autor` (`id_autor`) USING BTREE;
+  ADD KEY `fk_libro_autor` (`id_autor`) USING BTREE,
+  ADD KEY `isbn` (`isbn`) USING BTREE;
 
 --
 -- Indices de la tabla `multas`
@@ -163,13 +189,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `autores`
 --
 ALTER TABLE `autores`
-  MODIFY `id_autor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_autor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `multas`

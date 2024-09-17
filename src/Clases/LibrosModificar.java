@@ -8,17 +8,27 @@ package Clases;
  *
  * @author pc
  */
-public class Libros {
+public class LibrosModificar {
+    int id_libro;
     String titulo;
     String isbn;
     String genero;
     int autor;
 
-    public Libros(String titulo, String isbn, String genero, int autor) {
+    public LibrosModificar(int id_libro, String titulo, String isbn, String genero, int autor) {
+        this.id_libro = id_libro;
         this.titulo = titulo;
         this.isbn = isbn;
         this.genero = genero;
         this.autor = autor;
+    }
+
+    public int getId_libro() {
+        return id_libro;
+    }
+
+    public void setId_libro(int id_libro) {
+        this.id_libro = id_libro;
     }
 
     public String getTitulo() {
@@ -53,7 +63,4 @@ public class Libros {
         this.autor = autor;
     }
     
-
-    
 }
-
