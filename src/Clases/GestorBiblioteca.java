@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package Clases;
-
 import Formularios.frmPrincipal;
 import Formularios.frmRegistroUsuarios;
 import javax.swing.JFrame;

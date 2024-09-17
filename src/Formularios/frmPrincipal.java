@@ -29,12 +29,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-<<<<<<< HEAD
+
         jMenuItem2 = new javax.swing.JMenuItem();
-=======
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mnuRegistroAutor = new javax.swing.JMenuItem();
->>>>>>> 116d48fe7369b96a1140f8bfdf04504fd67a2c55
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -96,14 +94,14 @@ public class frmPrincipal extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-<<<<<<< HEAD
+
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         frmLibros lib = new frmLibros();
        this.setVisible(false);//ocultar formulario actual
        lib.setLocationRelativeTo(null);
        lib.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-=======
+
     private void mnuRegistroAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegistroAutorActionPerformed
         //generamos una instancia al frmRegistroAutores
         frmRegistroAutores autores = new frmRegistroAutores();
@@ -111,7 +109,7 @@ public class frmPrincipal extends javax.swing.JFrame {
        autores.setLocationRelativeTo(null);
        autores.setVisible(true);
     }//GEN-LAST:event_mnuRegistroAutorActionPerformed
->>>>>>> 116d48fe7369b96a1140f8bfdf04504fd67a2c55
+
 
     /**
      * @param args the command line arguments
@@ -153,11 +151,11 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-<<<<<<< HEAD
+
     private javax.swing.JMenuItem jMenuItem2;
-=======
+
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenuItem mnuRegistroAutor;
->>>>>>> 116d48fe7369b96a1140f8bfdf04504fd67a2c55
+
     // End of variables declaration//GEN-END:variables
 }
