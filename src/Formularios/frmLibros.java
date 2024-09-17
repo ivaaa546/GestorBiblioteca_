@@ -9,6 +9,8 @@ import Clases.DatosUsuarios;
 import Clases.Libros;
 import Clases.LibrosModificar;
 import Clases.Usuario;
+import com.sun.jdi.connect.spi.Connection;
+import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -59,6 +61,7 @@ public class frmLibros extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
         txtIdLibro = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -169,6 +172,13 @@ public class frmLibros extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -216,7 +226,9 @@ public class frmLibros extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnModificar)
                         .addGap(18, 18, 18)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(jButton1)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -249,7 +261,8 @@ public class frmLibros extends javax.swing.JFrame {
                     .addComponent(btnAgregar)
                     .addComponent(btnModificar)
                     .addComponent(btnEliminar)
-                    .addComponent(btnBuscar))
+                    .addComponent(btnBuscar)
+                    .addComponent(jButton1))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -423,6 +436,36 @@ public class frmLibros extends javax.swing.JFrame {
     private void txtIdLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdLibroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdLibroActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        DatosLibros datosLibros = new DatosLibros();  // Crear una instancia de DatosLibros
+    // Recoger los valores de los campos del formulario
+    String titulo = txtTitutulo.getText();      // Campo de texto para el título
+    String isbn = txtIsbn.getText();          // Campo de texto para el ISBN
+    String genero = txtGenero.getText();      // Campo de texto para el género
+    String autorNombre = (String) cmbAutor.getSelectedItem();  // Nombre del autor seleccionado en el ComboBox
+    int idAutor = datosLibros.id_autor(autorNombre);  // Obtener el ID del autor a partir del nombre
+
+    int idLibro = Integer.parseInt(txtIdLibro.getText());  // ID del libro que vamos a editar (es necesario)
+
+    // Crear un objeto Libros con los nuevos valores
+    Libros libro = new Libros(titulo, isbn, genero, idAutor);
+
+    // Llamar al método para editar el libro
+    
+    boolean exito = datosLibros.editarLibro(libro, idLibro);  // Editar el libro
+
+    // Verificar si la edición fue exitosa
+    if (exito) {
+        JOptionPane.showMessageDialog(null, "El libro se ha actualizado correctamente.");
+    } else {
+        JOptionPane.showMessageDialog(null, "Error al actualizar el libro.");
+    }
+
+    // Cerrar la conexión a la base de datos
+    datosLibros.cerrarConexion();
+    }//GEN-LAST:event_jButton1ActionPerformed
     //llenar tabla
     private DefaultTableModel tabla;
     private void llenarTabla(){
@@ -492,6 +535,7 @@ public class frmLibros extends javax.swing.JFrame {
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> cmbAutor;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
