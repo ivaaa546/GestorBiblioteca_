@@ -28,34 +28,35 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        mnuRegistrarLibros = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        mnuRegistrarAutores = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("Registro");
 
-        jMenuItem1.setText("Registrar Usuarios");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mnuRegistrarLibros.setText("Registrar Usuarios");
+        mnuRegistrarLibros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mnuRegistrarLibrosActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
-        jMenu1.add(jSeparator1);
+        jMenu1.add(mnuRegistrarLibros);
+        jMenu1.add(jSeparator2);
 
-        jMenuItem2.setText("Registrar Autores");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        mnuRegistrarAutores.setText("Registrar Autores");
+        mnuRegistrarAutores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                mnuRegistrarAutoresActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(mnuRegistrarAutores);
+        jMenu1.add(jSeparator3);
 
-        jMenuItem3.setText("Registro Libros");
+        jMenuItem3.setText("Registrar Libros");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -64,9 +65,6 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -84,27 +82,27 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       frmRegistroUsuarios usu = new frmRegistroUsuarios();
-       this.setVisible(false);//ocultar formulario actual
-       usu.setLocationRelativeTo(null);
-       usu.setVisible(true);
+    private void mnuRegistrarLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegistrarLibrosActionPerformed
+        frmRegistroUsuarios usu = new frmRegistroUsuarios();
+        this.setVisible(false);//ocultar formulario actual
+        usu.setLocationRelativeTo(null);
+        usu.setVisible(true);
        
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_mnuRegistrarLibrosActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void mnuRegistrarAutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegistrarAutoresActionPerformed
         //generamos una instancia al frmRegistroAutores
         frmRegistroAutores autores = new frmRegistroAutores();
-       this.setVisible(false);//ocultar formulario actual
-       autores.setLocationRelativeTo(null);
-       autores.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+        this.setVisible(false);//ocultar formulario actual
+        autores.setLocationRelativeTo(null);
+        autores.setVisible(true);
+    }//GEN-LAST:event_mnuRegistrarAutoresActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-     frmLibros libros = new frmLibros();
-       this.setVisible(false);//ocultar formulario actual
-       libros.setLocationRelativeTo(null);
-       libros.setVisible(true);
+        frmLibros libros = new frmLibros();
+        this.setVisible(false);//ocultar formulario actual
+        libros.setLocationRelativeTo(null);
+        libros.setVisible(true);
         
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
@@ -146,11 +144,11 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JMenuItem mnuRegistrarAutores;
+    private javax.swing.JMenuItem mnuRegistrarLibros;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,7 +9,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import Clases.Usuario;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
@@ -51,7 +50,6 @@ public class DatosUsuarios {
         //metodo para insetardatos a la base de datos
     public boolean insertUsuario(Usuario usuario_)
     {
-       
         try {
              String sql = "INSERT INTO usuarios (nombre, tipo_usuario, apellido, numero_cel, fecha_ingreso, direccion) VALUES ('"
     + usuario_.getNombre() + "', '"
@@ -69,5 +67,18 @@ public class DatosUsuarios {
             return false;
         }
           
+    }
+    
+    //metodo para obtener Usuarios
+    public ResultSet mostrarUsuarios() {
+        try {
+            String sql = "SELECT * FROM usuarios ORDER BY id_usuario";
+            Statement st = (Statement) con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(DatosAutor.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 }

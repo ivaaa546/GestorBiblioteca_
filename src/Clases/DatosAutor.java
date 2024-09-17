@@ -3,14 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Clases;
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
-import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.sql.Statement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author josue
@@ -21,7 +22,7 @@ public class DatosAutor {
     public DatosAutor() throws SQLException{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String db="jdbc:mysql://localhost/gestor_biblioteca?serverTimezone=UTC";
+            String db ="jdbc:mysql://localhost/gestor_biblioteca?serverTimezone=UTC";
             con = DriverManager.getConnection(db,"root","");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DatosAutor.class.getName()).log(Level.SEVERE, null, ex);
@@ -35,26 +36,6 @@ public class DatosAutor {
             Logger.getLogger(DatosAutor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    /*public boolean insertarAutor(Autor autor_) {
-    try {
-        // Construir la consulta SQL con concatenación de cadenas
-        String sql = "INSERT INTO autores(nombre, nacionalidad, fecha_nacimiento, "
-                + "fecha_fallecimiento) VALUES ('"
-                + autor_.getNombre() + "', '"
-                + autor_.getNacionalidad() + "', '"
-                + new java.sql.Date(autor_.getFecha_nacimiento().getTime()) + "', '"
-                + new java.sql.Date(autor_.getFecha_fallecimiento().getTime()) + "')";
-
-        // Crear Statement y ejecutar la consulta
-        Statement st = con.createStatement();
-        st.executeUpdate(sql);
-        return true;
-    } catch (SQLException ex) {
-        Logger.getLogger(DatosAutor.class.getName()).log(Level.SEVERE, null, ex);
-        return false;
-    }
-    }*/
     
     public boolean insertarAutor(Autor autor_) {
     String sql = "INSERT INTO autores(nombre, nacionalidad, fecha_nacimiento, fecha_fallecimiento) VALUES (?, ?, ?, ?)";
@@ -77,5 +58,19 @@ public class DatosAutor {
         return false;
     }
     }
-
+    
+    //metodo para obtener Autores
+    public ResultSet mostrarAutores() {
+        try {
+            String sql = "SELECT * FROM autores ORDER BY id_autor";
+            Statement st = (Statement) con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(DatosAutor.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
 }
+    
+
