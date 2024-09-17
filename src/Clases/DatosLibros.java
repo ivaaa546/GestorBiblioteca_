@@ -88,7 +88,7 @@ public class DatosLibros {
     //metodo para obtener id autor
     public int id_autor(String autor){
     try {
-            String sql= "Select id_autor from autores where autor_= '"+ autor+ "'";
+            String sql = "SELECT id_autor FROM autores WHERE nombre = '" + autor + "'";
             Statement st= con.createStatement();
             ResultSet rs=st.executeQuery(sql);
             
@@ -104,28 +104,132 @@ public class DatosLibros {
         }
         return 0;
     }
+
+    
     
    //metodo para insetardatos a la base de datos
-   public boolean insertarLibro(Libros misLibros)
-    {
-       
+   public boolean insertarLibro(Libros misLibros) {
+    try {
+        String sql = "INSERT INTO libros (titulo, isbn, genero, id_autor) VALUES ('"
+            + misLibros.getTitulo() + "', '"
+            + misLibros.getIsbn() + "', '"
+            + misLibros.getGenero() + "', "
+            + misLibros.getAutor() + ")"; // Suponiendo que getAutor() devuelve un int
+        
+        Statement st = con.createStatement();
+        st.executeUpdate(sql);
+        return true;
+    } catch (SQLException ex) {
+        Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
+        return false;
+    }
+}
+   //metodo para buscar los auotores por medio del id
+   public Libros getLibros(int id)
+   {    
+      
         try {
-             String sql = "INSERT INTO libros (titulo, isbn, genero, id_autor) VALUES ('"
-   // + misLibros.getId_libro()+ "', '"
-    + misLibros.getTitulo()+ "' '"
-    + misLibros.getIsbn()+ "', '"
-    + misLibros.getGenero()+ "', '"
-    + misLibros.getAutor()+ "')";
+            Libros lib= null;
+            String sql= "Select * from libros where id_autor= '" + id+ "' ";
+            Statement st = con.createStatement();
+            ResultSet rs= st.executeQuery(sql);
+            if(rs.next()){
+            
+                lib= new Libros(
+                rs.getString("titulo"),
+                rs.getString("isbn"),
+                rs.getString("genero"),
+                rs.getInt("id_autor"));
+            
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
+        }return null;
+   
+   }
+   
+   //metodo para buscar
+   public Libros buscarL(String titulo)
+   {
+        try {
+            Libros lib= null;
+            String sql= "Select * from libros where titulo= '" + titulo+ "' ";
+            
+            // Permite preparar la base de datos para enviarle consultas
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+            lib = new Libros(
+                rs.getString("titulo"),
+                rs.getString("isbn"),  // Cambia "Nombre" por "Apellido" o el campo correcto
+                rs.getString("genero"),
+                rs.getInt("id_autor")
+            );
+            
+        }
+            
+            return lib;
+        } catch (SQLException ex) {
+            Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+   }
+   
+   //metodo para eliminar 
+   public boolean eliminarLibro(Libros libro)
+   {
+        try {
+            String sql = "DELETE FROM libros WHERE titulo='"+libro.getTitulo()+"'";
             //permite preparar la base de datos para enviarle consultas
             Statement st= con.createStatement();
             st.executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
+        }return false;
+   }
+
+   //actualizar libro
+  // Método para actualizar un libro en la base de datos
+    /*public boolean actualizarL(Libros lib) {
+        try {
+            // SQL para actualizar el libro, buscando por el título original
+            String sql = "UPDATE libros SET titulo = '" + lib.getTitulo() + "', "
+                       + "isbn = '" + lib.getIsbn() + "', "
+                       + "genero = '" + lib.getGenero() + "', "
+                       + "id_autor = '" + lib.getAutor() + "' "
+                       + "WHERE titulo = '" + lib.getTitulo()+ "'";
+
+            Statement st = con.createStatement();
+            st.executeUpdate(sql);
             return true;
+
         } catch (SQLException ex) {
             Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-          
-    }
-   
+    }   */
+   public boolean actualizarL(Libros lib, String tituloOriginal) {
+    try {
+        String sql = "UPDATE libros SET titulo = '" + lib.getTitulo() + "', "
+                   + "isbn = '" + lib.getIsbn() + "', "
+                   + "genero = '" + lib.getGenero() + "', "
+                   + "id_autor = '" + lib.getAutor() + "' "
+                   + "WHERE titulo = '" + tituloOriginal + "'";
 
+        Statement st = con.createStatement();
+        st.executeUpdate(sql);
+        return true;
+
+    } catch (SQLException ex) {
+        Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
+        return false;
+    }
 }
+
+   
+   
+   
+}
+
+

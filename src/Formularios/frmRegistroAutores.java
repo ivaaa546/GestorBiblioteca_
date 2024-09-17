@@ -9,6 +9,7 @@ import Clases.DatosAutor;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -80,6 +81,11 @@ public class frmRegistroAutores extends javax.swing.JFrame {
 
         btnRegresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,6 +179,13 @@ public class frmRegistroAutores extends javax.swing.JFrame {
             Logger.getLogger(frmRegistroAutores.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        frmPrincipalBiblioteca pr = new frmPrincipalBiblioteca();
+       pr.setLocationRelativeTo(null);
+       pr.setVisible(true);
+       pr.setExtendedState(JFrame.MAXIMIZED_BOTH); //maximisamos formulario principal
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
