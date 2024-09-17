@@ -47,7 +47,7 @@ public class frmLibros extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtIsbn = new javax.swing.JTextField();
-        txtTitutulo = new javax.swing.JTextField();
+        txtTitulo = new javax.swing.JTextField();
         txtGenero = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
@@ -90,10 +90,10 @@ public class frmLibros extends javax.swing.JFrame {
             }
         });
 
-        txtTitutulo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txtTitutulo.addActionListener(new java.awt.event.ActionListener() {
+        txtTitulo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTitutuloActionPerformed(evt);
+                txtTituloActionPerformed(evt);
             }
         });
 
@@ -191,7 +191,7 @@ public class frmLibros extends javax.swing.JFrame {
                                     .addComponent(jLabel8))
                                 .addGap(34, 34, 34)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTitutulo, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
@@ -238,11 +238,11 @@ public class frmLibros extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtTitutulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(txtIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(15, 15, 15)
                 .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -256,7 +256,7 @@ public class frmLibros extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevo)
                     .addComponent(btnRegresar))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -266,9 +266,9 @@ public class frmLibros extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIsbnActionPerformed
 
-    private void txtTitutuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitutuloActionPerformed
+    private void txtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTitutuloActionPerformed
+    }//GEN-LAST:event_txtTituloActionPerformed
 
     private void txtGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroActionPerformed
         // TODO add your handling code here:
@@ -292,7 +292,7 @@ public class frmLibros extends javax.swing.JFrame {
     String titulo, isbn, genero;
     int id_autor;
     // Obtener los valores de los campos de texto
-    titulo = txtTitutulo.getText().trim();
+    titulo = txtTitulo.getText().trim();
     isbn = txtIsbn.getText().trim();
     genero = txtGenero.getText().trim();
     
@@ -322,11 +322,11 @@ public class frmLibros extends javax.swing.JFrame {
         }
        
        DatosLibros co= new DatosLibros();
-       Libros lib = co.buscarL(txtTitutulo.getText());
+       Libros lib = co.buscarL(txtTitulo.getText());
        
         if(lib==null){
         JOptionPane.showMessageDialog(rootPane, "Libro no encotrado");
-        txtTitutulo.grabFocus();
+        txtTitulo.grabFocus();
         co.cerrarConexion();    
         return;
         }
@@ -345,18 +345,18 @@ public class frmLibros extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
     
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-       String titulo = txtTitutulo.getText();
+       String titulo = txtTitulo.getText();
        DatosLibros co= new DatosLibros();
        Libros lib= co.buscarL(titulo);
        if(lib == null){
         JOptionPane.showMessageDialog(rootPane, "Libro no encotrado");
-        txtTitutulo.grabFocus();
+        txtTitulo.grabFocus();
         co.cerrarConexion();
         return;
         }
        String nombreAutor = co.nombreAutor(lib.getAutor());
                
-       txtTitutulo.setText(lib.getTitulo());
+       txtTitulo.setText(lib.getTitulo());
        txtIsbn.setText(lib.getIsbn());
        txtGenero.setText(lib.getGenero());
        cmbAutor.setSelectedItem(nombreAutor);
@@ -390,7 +390,7 @@ public class frmLibros extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Libro no modificado exitosamente");
         }
         llenarTabla();
-       conectar.cerrarConexion();*/
+       conectar.cerrarConexion();
  
         DatosLibros conectar = new DatosLibros();
         //int id_libro = conectar.id_autor(String.valueOf(cmbAutor.getSelectedItem()));
@@ -416,15 +416,42 @@ public class frmLibros extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(rootPane, "Libro no modificado exitosamente");
        }
     conectar.cerrarConexion();
-    llenarTabla();
+    llenarTabla();*/
+        
+    // Recoger los datos de los campos del formulario
+    int idLibro = Integer.parseInt(txtIdLibro.getText());
+    String titulo = txtTitulo.getText();
+    String isbn = txtIsbn.getText();
+    String genero = txtGenero.getText();
+    int autor = cmbAutor.getSelectedIndex();
 
+    // Crear una instancia de LibrosModificar
+    LibrosModificar libroModificado = new LibrosModificar(idLibro, titulo, isbn, genero, autor);
+    // Actualizar el libro en la base de datos  
+    DatosLibros datosLibros = new DatosLibros();
+    boolean exito = datosLibros.actualizarLibro(libroModificado);
+    datosLibros.cerrarConexion(); // Asegúrate de cerrar la conexión después de usarla
+
+    if (exito) {
+    JOptionPane.showMessageDialog(null, "Libro actualizado con éxito.");
+    } 
+    else {
+    JOptionPane.showMessageDialog(null, "Error al actualizar el libro.");
+    }
+    
+    llenarTabla();
+    
     }//GEN-LAST:event_btnModificarActionPerformed
 
+
+    
     private void txtIdLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdLibroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdLibroActionPerformed
+    
     //llenar tabla
     private DefaultTableModel tabla;
+    
     private void llenarTabla(){
         try {
             String titulos[]={"ID_libro","Titulo", "ISBN", "Genero", "Autor"};
@@ -446,7 +473,7 @@ public class frmLibros extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(frmLibros.class.getName()).log(Level.SEVERE, null, ex);
         }
-    };
+    }
 
     
     /**
@@ -502,6 +529,6 @@ public class frmLibros extends javax.swing.JFrame {
     private javax.swing.JTextField txtGenero;
     private javax.swing.JTextField txtIdLibro;
     private javax.swing.JTextField txtIsbn;
-    private javax.swing.JTextField txtTitutulo;
+    private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

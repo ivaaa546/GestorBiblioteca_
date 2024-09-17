@@ -9,13 +9,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import Clases.Usuario;
 import java.sql.Statement;
 import java.sql.ResultSet;
-import Clases.Libros;
-import java.util.HashMap;
 import javax.swing.JComboBox;
-import java.sql.PreparedStatement;
 
 /**
  *
@@ -243,7 +239,26 @@ public class DatosLibros {
         Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
         return false;
     }
-}
+   }
+   
+   public boolean actualizarLibro(LibrosModificar libro) {
+    try {
+        // Construye la sentencia SQL para actualizar el libro
+        String sql = "UPDATE libros SET "
+                   + "titulo = '" + libro.getTitulo() + "', "
+                   + "isbn = '" + libro.getIsbn() + "', "
+                   + "genero = '" + libro.getGenero() + "', "
+                   + "id_autor = " + libro.getAutor() + " "
+                   + "WHERE id_libro = " + libro.getId_libro();
+
+        Statement st = con.createStatement();
+        int filasAfectadas = st.executeUpdate(sql);
+        return filasAfectadas > 0; // Retorna true si se actualizó al menos una fila
+    } catch (SQLException ex) {
+        Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
+        return false;
+    }
+   }
 
 }
 
