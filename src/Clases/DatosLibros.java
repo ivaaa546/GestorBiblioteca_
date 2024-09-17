@@ -52,7 +52,7 @@ public class DatosLibros {
     {
         
         try {
-            String sql= "Select * from mostralibros order by titulo";
+            String sql= "Select * from mostralibros order by id_libro";
             Statement  st= null;
             st= con.createStatement();
             ResultSet rs = st.executeQuery(sql);
