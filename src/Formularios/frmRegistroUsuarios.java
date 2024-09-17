@@ -268,10 +268,10 @@ public class frmRegistroUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFechaActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-       frmPrincipal pr = new frmPrincipal();
-       pr.setLocationRelativeTo(null);
+       //frmPrincipal pr = new frmPrincipal();
+       /*pr.setLocationRelativeTo(null);
        pr.setVisible(true);
-       pr.setExtendedState(JFrame.MAXIMIZED_BOTH); //maximisamos formulario principal 
+       pr.setExtendedState(JFrame.MAXIMIZED_BOTH); //maximisamos formulario principal*/ 
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

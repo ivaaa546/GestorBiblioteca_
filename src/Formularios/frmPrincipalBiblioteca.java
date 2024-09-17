@@ -6,14 +6,14 @@ package Formularios;
 
 /**
  *
- * @author pc
+ * @author josue
  */
-public class frmPrincipal extends javax.swing.JFrame {
+public class frmPrincipalBiblioteca extends javax.swing.JFrame {
 
     /**
-     * Creates new form frmPrincipal
+     * Creates new form frmPrincipalBiblioteca
      */
-    public frmPrincipal() {
+    public frmPrincipalBiblioteca() {
         initComponents();
     }
 
@@ -29,17 +29,15 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-
-        jMenuItem2 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        mnuRegistroAutor = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Opciones");
+        jMenu1.setText("Registro");
 
-        jMenuItem1.setText("Registro Usuario");
+        jMenuItem1.setText("Registrar Usuarios");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -48,15 +46,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
         jMenu1.add(jSeparator1);
 
-        mnuRegistroAutor.setText("Registro Autor");
-        mnuRegistroAutor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuRegistroAutorActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mnuRegistroAutor);
-
-        jMenuItem2.setText("Libros");
+        jMenuItem2.setText("Registrar Autores");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -66,7 +56,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Ayuda");
+        jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -75,11 +65,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 851, Short.MAX_VALUE)
+            .addGap(0, 575, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 393, Short.MAX_VALUE)
+            .addGap(0, 387, Short.MAX_VALUE)
         );
 
         pack();
@@ -91,25 +81,15 @@ public class frmPrincipal extends javax.swing.JFrame {
        usu.setLocationRelativeTo(null);
        usu.setVisible(true);
        
-       
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        frmLibros lib = new frmLibros();
-       this.setVisible(false);//ocultar formulario actual
-       lib.setLocationRelativeTo(null);
-       lib.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void mnuRegistroAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegistroAutorActionPerformed
         //generamos una instancia al frmRegistroAutores
         frmRegistroAutores autores = new frmRegistroAutores();
        this.setVisible(false);//ocultar formulario actual
        autores.setLocationRelativeTo(null);
        autores.setVisible(true);
-    }//GEN-LAST:event_mnuRegistroAutorActionPerformed
-
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,20 +108,20 @@ public class frmPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPrincipalBiblioteca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPrincipalBiblioteca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPrincipalBiblioteca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPrincipalBiblioteca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmPrincipal().setVisible(true);
+                new frmPrincipalBiblioteca().setVisible(true);
             }
         });
     }
@@ -151,11 +131,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-
     private javax.swing.JMenuItem jMenuItem2;
-
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JMenuItem mnuRegistroAutor;
-
     // End of variables declaration//GEN-END:variables
 }

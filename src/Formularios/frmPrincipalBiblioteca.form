@@ -6,41 +6,32 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Opciones"/>
+            <Property name="text" type="java.lang.String" value="Registro"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Registro Usuario"/>
+                <Property name="text" type="java.lang.String" value="Registrar Usuarios"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
               </Events>
             </MenuItem>
-<<<<<<< HEAD
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Libros"/>
+                <Property name="text" type="java.lang.String" value="Registrar Autores"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
-=======
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mnuRegistroAutor">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Registro Autor"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuRegistroAutorActionPerformed"/>
->>>>>>> 116d48fe7369b96a1140f8bfdf04504fd67a2c55
               </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ayuda"/>
+            <Property name="text" type="java.lang.String" value="Edit"/>
           </Properties>
         </Menu>
       </SubComponents>
@@ -69,12 +60,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="851" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="575" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="393" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="387" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
