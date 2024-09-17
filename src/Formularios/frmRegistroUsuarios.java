@@ -85,7 +85,7 @@ public class frmRegistroUsuarios extends javax.swing.JFrame {
         txtApellido.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
         cmbTipo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccióne una opción...", "Estudiante", "Profesor", "Personal Admistrativo", " " }));
+        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccióne una opción...", "Estudiante", "Profesor", "Personal Admistrativo" }));
         cmbTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTipoActionPerformed(evt);
