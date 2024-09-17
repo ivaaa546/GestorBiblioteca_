@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-09-2024 a las 05:21:16
+-- Tiempo de generación: 16-09-2024 a las 22:27:57
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -29,12 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `autores` (
   `id_autor` int(11) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `apellido` varchar(50) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
   `nacionalidad` varchar(50) NOT NULL,
   `fecha_nacimiento` datetime NOT NULL,
   `fecha_fallecimiento` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `autores`
+--
+
+INSERT INTO `autores` (`id_autor`, `nombre`, `nacionalidad`, `fecha_nacimiento`, `fecha_fallecimiento`) VALUES
+(5, 'Karl Marx', 'Alemana', '1818-05-05 00:00:00', '1818-05-05 00:00:00'),
+(6, 'Milton Friedman', 'estadounidense', '1912-07-31 00:00:00', '1946-11-16 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -49,6 +56,14 @@ CREATE TABLE `libros` (
   `genero` varchar(100) DEFAULT NULL,
   `id_autor` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `libros`
+--
+
+INSERT INTO `libros` (`id_libro`, `titulo`, `isbn`, `genero`, `id_autor`) VALUES
+(1, 'Como bajar de peso (Manifiesto Comunista)', '978 950 563 6', 'Ficción', 5),
+(7, 'Libre para elegir', '978-950-563-6', 'Economia', 6);
 
 -- --------------------------------------------------------
 
@@ -117,7 +132,7 @@ ALTER TABLE `autores`
 ALTER TABLE `libros`
   ADD PRIMARY KEY (`id_libro`),
   ADD UNIQUE KEY `isbn` (`isbn`),
-  ADD UNIQUE KEY `fk_libro_autor` (`id_autor`);
+  ADD KEY `fk_libro_autor` (`id_autor`) USING BTREE;
 
 --
 -- Indices de la tabla `multas`
@@ -148,13 +163,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `autores`
 --
 ALTER TABLE `autores`
-  MODIFY `id_autor` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_autor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `multas`
@@ -172,17 +187,17 @@ ALTER TABLE `prestamos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `autores`
+-- Filtros para la tabla `libros`
 --
-ALTER TABLE `autores`
-  ADD CONSTRAINT `autores_ibfk_1` FOREIGN KEY (`id_autor`) REFERENCES `libros` (`id_autor`);
+ALTER TABLE `libros`
+  ADD CONSTRAINT `libros_ibfk_1` FOREIGN KEY (`id_autor`) REFERENCES `autores` (`id_autor`);
 
 --
 -- Filtros para la tabla `multas`

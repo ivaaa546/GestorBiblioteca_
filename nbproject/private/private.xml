@@ -2,11 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/Mariela/Desktop/GestorBiblioteca/src/Formularios/frmLibros.java</file>
             <file>file:/C:/Users/Mariela/Desktop/GestorBiblioteca/src/Clases/DatosLibros.java</file>
             <file>file:/C:/Users/Mariela/Desktop/GestorBiblioteca/src/Clases/DatosUsuarios.java</file>
             <file>file:/C:/Users/Mariela/Desktop/GestorBiblioteca/src/Clases/GestorBiblioteca.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> 116d48fe7369b96a1140f8bfdf04504fd67a2c55
     </open-files>
 </project-private>
