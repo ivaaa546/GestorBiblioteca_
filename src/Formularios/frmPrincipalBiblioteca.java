@@ -76,7 +76,7 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 387, Short.MAX_VALUE)
+            .addGap(0, 388, Short.MAX_VALUE)
         );
 
         pack();
@@ -90,14 +90,6 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
        
     }//GEN-LAST:event_mnuRegistrarLibrosActionPerformed
 
-    private void mnuRegistrarAutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegistrarAutoresActionPerformed
-        //generamos una instancia al frmRegistroAutores
-        frmRegistroAutores autores = new frmRegistroAutores();
-        this.setVisible(false);//ocultar formulario actual
-        autores.setLocationRelativeTo(null);
-        autores.setVisible(true);
-    }//GEN-LAST:event_mnuRegistrarAutoresActionPerformed
-
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         frmLibros libros = new frmLibros();
         this.setVisible(false);//ocultar formulario actual
@@ -106,6 +98,14 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void mnuRegistrarAutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegistrarAutoresActionPerformed
+       //generamos una instancia al frmRegistroAutores
+        frmRegistroAutores autores = new frmRegistroAutores();
+        this.setVisible(false);//ocultar formulario actual
+        autores.setLocationRelativeTo(null);
+        autores.setVisible(true);
+    }//GEN-LAST:event_mnuRegistrarAutoresActionPerformed
 
     /**
      * @param args the command line arguments

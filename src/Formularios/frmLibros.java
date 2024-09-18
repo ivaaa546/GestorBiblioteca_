@@ -49,7 +49,6 @@ public class frmLibros extends javax.swing.JFrame {
         txtTitulo = new javax.swing.JTextField();
         txtGenero = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
         btnNuevo = new javax.swing.JButton();
@@ -58,7 +57,8 @@ public class frmLibros extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
         txtIdLibro = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnModificar_ = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -112,14 +112,6 @@ public class frmLibros extends javax.swing.JFrame {
             }
         });
 
-        btnModificar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnModificar.setText("Modificar");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
-            }
-        });
-
         btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -138,6 +130,11 @@ public class frmLibros extends javax.swing.JFrame {
 
         btnNuevo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
 
         cmbAutor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
@@ -169,12 +166,16 @@ public class frmLibros extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnModificar_.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnModificar_.setText("Modificar");
+        btnModificar_.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnModificar_ActionPerformed(evt);
             }
         });
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel10.setText("ID Codigo:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,41 +186,44 @@ public class frmLibros extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(16, 16, 16)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addGap(34, 34, 34)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
+                                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnModificar_)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cmbAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel8))
+                                        .addGap(34, 34, 34)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel9)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel6)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(cmbAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(329, 329, 329))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(300, 300, 300)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnModificar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(jButton1)))
+                        .addComponent(jLabel2)))
                 .addContainerGap(23, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -251,14 +255,16 @@ public class frmLibros extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(txtIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(15, 15, 15)
-                .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar)
-                    .addComponent(btnModificar)
                     .addComponent(btnEliminar)
                     .addComponent(btnBuscar)
+<<<<<<< HEAD
                     .addComponent(jButton1))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -267,6 +273,16 @@ public class frmLibros extends javax.swing.JFrame {
                     .addComponent(btnNuevo)
                     .addComponent(btnRegresar))
                 .addContainerGap(19, Short.MAX_VALUE))
+=======
+                    .addComponent(btnModificar_))
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNuevo)
+                    .addComponent(btnRegresar))
+                .addContainerGap(54, Short.MAX_VALUE))
+>>>>>>> 5512b931fdc1785cdb43d8df517805dd69353e4a
         );
 
         pack();
@@ -373,86 +389,6 @@ public class frmLibros extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btnBuscarActionPerformed
     
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        /*DatosLibros conectar = new DatosLibros();
-        Libros lib= conectar.buscarL(txtTitutulo.getText());
-        if(lib==null){
-        JOptionPane.showMessageDialog(rootPane, "Libro no encotrado");
-        txtTitutulo.grabFocus();
-        conectar.cerrarConexion();    
-        return;
-        }
-        
-        //variables para obntener el codigo correcto del autor
-        int idAutor= conectar.id_autor(String.valueOf(cmbAutor.getSelectedIndex()));
-        
-        lib = new Libros(txtTitutulo.getText(),
-        txtIsbn.getText(),
-        txtGenero.getText(),
-        idAutor);
-        if(conectar.actualizarL(lib))
-        {
-        
-            JOptionPane.showMessageDialog(rootPane, "Libro modificado exitosamente");
-        }
-        else{
-        
-            JOptionPane.showMessageDialog(rootPane, "Libro no modificado exitosamente");
-        }
-        llenarTabla();
-       conectar.cerrarConexion();
- 
-        DatosLibros conectar = new DatosLibros();
-        //int id_libro = conectar.id_autor(String.valueOf(cmbAutor.getSelectedItem()));
-        //LibrosModificar lib = new LibrosModificar
-      // LibrosModificar lib = conectar.getLibros(Integer.parseInt(txtIdLibro.getText()));
-        Libros lib = conectar.buscarL(txtTitutulo.getText().trim());
-        
-        if (lib == null) {
-            JOptionPane.showMessageDialog(rootPane, "Libro no encontrado");
-            txtTitutulo.grabFocus();
-            conectar.cerrarConexion();    
-            return;
-        }
-        // Obtener el código correcto del autor
-        int idAutor = conectar.id_autor(String.valueOf(cmbAutor.getSelectedItem()));
-        // Crear un nuevo objeto Libros con los datos actualizados
-        lib = new Libros(txtTitutulo.getText(), txtIsbn.getText(), txtGenero.getText(), idAutor);
-
-        // Llamar al método para actualizar el libro usando el título original
-        if (conectar.actualizarL(lib)) {
-           JOptionPane.showMessageDialog(rootPane, "Libro modificado exitosamente");
-       } else {
-           JOptionPane.showMessageDialog(rootPane, "Libro no modificado exitosamente");
-       }
-    conectar.cerrarConexion();
-    llenarTabla();*/
-        
-    // Recoger los datos de los campos del formulario
-    /*int idLibro = Integer.parseInt(txtIdLibro.getText());
-    String titulo = txtTitulo.getText();
-    String isbn = txtIsbn.getText();
-    String genero = txtGenero.getText();
-    int autor = cmbAutor.getSelectedIndex();
-
-    // Crear una instancia de LibrosModificar
-    LibrosModificar libroModificado = new LibrosModificar(idLibro, titulo, isbn, genero, autor);
-    // Actualizar el libro en la base de datos  
-    DatosLibros datosLibros = new DatosLibros();
-    boolean exito = datosLibros.actualizarLibro(libroModificado);
-    datosLibros.cerrarConexion(); // Asegúrate de cerrar la conexión después de usarla
-
-    if (exito) {
-    JOptionPane.showMessageDialog(null, "Libro actualizado con éxito.");
-    } 
-    else {
-    JOptionPane.showMessageDialog(null, "Error al actualizar el libro.");
-    }
-    
-    llenarTabla();*/
-    
-    }//GEN-LAST:event_btnModificarActionPerformed
-
 
     
     private void txtIdLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdLibroActionPerformed
@@ -460,7 +396,7 @@ public class frmLibros extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIdLibroActionPerformed
 
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnModificar_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificar_ActionPerformed
     DatosLibros datosLibros = new DatosLibros();  // Crear una instancia de DatosLibros
 // Recoger los valores de los campos del formulario
     String titulo = txtTitulo.getText();      // Campo de texto para el título
@@ -486,7 +422,11 @@ public class frmLibros extends javax.swing.JFrame {
 
     // Cerrar la conexión a la base de datos
     datosLibros.cerrarConexion();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnModificar_ActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNuevoActionPerformed
 
     //llenar tabla
     private DefaultTableModel tabla;
@@ -554,11 +494,11 @@ public class frmLibros extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnModificar_;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> cmbAutor;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
