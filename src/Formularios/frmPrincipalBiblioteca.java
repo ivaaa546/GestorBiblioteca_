@@ -33,6 +33,8 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
         mnuRegistrarAutores = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        mnuPrestamosDevoluciones = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,6 +65,15 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem3);
+        jMenu1.add(jSeparator1);
+
+        mnuPrestamosDevoluciones.setText("Registrar Préstamos y Devoluciones");
+        mnuPrestamosDevoluciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuPrestamosDevolucionesActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnuPrestamosDevoluciones);
 
         jMenuBar1.add(jMenu1);
 
@@ -107,6 +118,14 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
         autores.setVisible(true);
     }//GEN-LAST:event_mnuRegistrarAutoresActionPerformed
 
+    private void mnuPrestamosDevolucionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuPrestamosDevolucionesActionPerformed
+        // TODO add your handling code here:
+        frmPrestamos prestamos = new frmPrestamos();
+        this.setVisible(false);//ocultar formulario actual
+        prestamos.setLocationRelativeTo(null);
+        prestamos.setVisible(true);
+    }//GEN-LAST:event_mnuPrestamosDevolucionesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -146,8 +165,10 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JMenuItem mnuPrestamosDevoluciones;
     private javax.swing.JMenuItem mnuRegistrarAutores;
     private javax.swing.JMenuItem mnuRegistrarLibros;
     // End of variables declaration//GEN-END:variables

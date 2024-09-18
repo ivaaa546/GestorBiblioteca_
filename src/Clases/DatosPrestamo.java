@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author josue
+ * @author jossq
  */
 public class DatosPrestamo {
     private Connection con;
@@ -25,4 +25,16 @@ public class DatosPrestamo {
             Logger.getLogger(DatosAutor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void cerrarConexion()
+    {
+        try
+        {
+            con.close();
+        }
+        catch (SQLException ex )
+        {
+            Logger.getLogger(DatosPrestamo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }
