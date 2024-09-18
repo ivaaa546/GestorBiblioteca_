@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Clases;
-
+import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -259,7 +259,42 @@ public class DatosLibros {
         return false;
     }
    }
+   
+   // Método para editar un libro en la base de datos
+public boolean editarLibro(Libros libro, int idLibro) {
+    try {
+        // Consulta SQL para actualizar los datos del libro
+        String sql = "UPDATE libros SET titulo = ?, isbn = ?, genero = ?, id_autor = ? WHERE id_libro = ?";
+
+        // Preparar la consulta
+        PreparedStatement pst = con.prepareStatement(sql);
+
+        // Asignar los valores a los placeholders de la consulta
+        pst.setString(1, libro.getTitulo());  // Establecer el título
+        pst.setString(2, libro.getIsbn());    // Establecer el ISBN
+        pst.setString(3, libro.getGenero());  // Establecer el género
+        pst.setInt(4, libro.getAutor());      // Establecer el id del autor
+        pst.setInt(5, idLibro);               // Establecer el id del libro que se va a actualizar
+
+        // Ejecutar la actualización
+        int filasActualizadas = pst.executeUpdate();
+
+        // Verificar si la actualización fue exitosa
+        if (filasActualizadas > 0) {
+            System.out.println("El libro se ha actualizado correctamente.");
+            return true;
+        } else {
+            System.out.println("No se encontró un libro con el ID proporcionado.");
+            return false;
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
+        return false;
+    }
+}
 
 }
+
+
 
 
