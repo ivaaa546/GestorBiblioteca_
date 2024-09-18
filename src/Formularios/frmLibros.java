@@ -50,7 +50,6 @@ public class frmLibros extends javax.swing.JFrame {
         txtTitulo = new javax.swing.JTextField();
         txtGenero = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
         btnNuevo = new javax.swing.JButton();
@@ -59,7 +58,8 @@ public class frmLibros extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
         txtIdLibro = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -113,14 +113,6 @@ public class frmLibros extends javax.swing.JFrame {
             }
         });
 
-        btnModificar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnModificar.setText("Modificar");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
-            }
-        });
-
         btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -170,13 +162,16 @@ public class frmLibros extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnModificar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnModificarActionPerformed(evt);
             }
         });
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel10.setText("ID Libro:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -197,7 +192,8 @@ public class frmLibros extends javax.swing.JFrame {
                                 .addGap(16, 16, 16)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel10))
                                 .addGap(34, 34, 34)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,10 +220,8 @@ public class frmLibros extends javax.swing.JFrame {
                         .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnModificar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
+                        .addGap(27, 27, 27)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -253,15 +247,16 @@ public class frmLibros extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(txtIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(15, 15, 15)
-                .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar)
-                    .addComponent(btnModificar)
                     .addComponent(btnEliminar)
                     .addComponent(btnBuscar)
-                    .addComponent(jButton1))
+                    .addComponent(btnModificar))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -301,6 +296,33 @@ public class frmLibros extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+   
+      if(txtTitulo.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar el titulo del libro", "Titulo libro", HEIGHT);
+            txtTitulo.grabFocus();
+            return;
+        }  
+
+        if(txtIsbn.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar el ISBN del libro", "ISBN", HEIGHT);
+            txtIsbn.grabFocus();
+            return;
+        } 
+        if(txtGenero.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar el genero del libro", "Genero", HEIGHT);
+            txtGenero.grabFocus();
+            return;
+        } 
+        if(cmbAutor.getSelectedIndex()==0)
+            {
+                JOptionPane.showMessageDialog(rootPane, "Debe selecionar el autor", "Autor", HEIGHT);
+                cmbAutor.grabFocus();
+                return;
+            }
+        
     String titulo, isbn, genero;
     int id_autor;
     // Obtener los valores de los campos de texto
@@ -357,7 +379,14 @@ public class frmLibros extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
     
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-       String titulo = txtTitulo.getText();
+       if(txtTitulo.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar el titulo del libro", "Titulo libro", HEIGHT);
+            txtTitulo.grabFocus();
+            return;
+        } 
+
+        String titulo = txtTitulo.getText();
        DatosLibros co= new DatosLibros();
        Libros lib= co.buscarL(titulo);
        if(lib == null){
@@ -375,93 +404,22 @@ public class frmLibros extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btnBuscarActionPerformed
     
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        /*DatosLibros conectar = new DatosLibros();
-        Libros lib= conectar.buscarL(txtTitutulo.getText());
-        if(lib==null){
-        JOptionPane.showMessageDialog(rootPane, "Libro no encotrado");
-        txtTitutulo.grabFocus();
-        conectar.cerrarConexion();    
-        return;
-        }
-        
-        //variables para obntener el codigo correcto del autor
-        int idAutor= conectar.id_autor(String.valueOf(cmbAutor.getSelectedIndex()));
-        
-        lib = new Libros(txtTitutulo.getText(),
-        txtIsbn.getText(),
-        txtGenero.getText(),
-        idAutor);
-        if(conectar.actualizarL(lib))
-        {
-        
-            JOptionPane.showMessageDialog(rootPane, "Libro modificado exitosamente");
-        }
-        else{
-        
-            JOptionPane.showMessageDialog(rootPane, "Libro no modificado exitosamente");
-        }
-        llenarTabla();
-       conectar.cerrarConexion();
- 
-        DatosLibros conectar = new DatosLibros();
-        //int id_libro = conectar.id_autor(String.valueOf(cmbAutor.getSelectedItem()));
-        //LibrosModificar lib = new LibrosModificar
-      // LibrosModificar lib = conectar.getLibros(Integer.parseInt(txtIdLibro.getText()));
-        Libros lib = conectar.buscarL(txtTitutulo.getText().trim());
-        
-        if (lib == null) {
-            JOptionPane.showMessageDialog(rootPane, "Libro no encontrado");
-            txtTitutulo.grabFocus();
-            conectar.cerrarConexion();    
-            return;
-        }
-        // Obtener el código correcto del autor
-        int idAutor = conectar.id_autor(String.valueOf(cmbAutor.getSelectedItem()));
-        // Crear un nuevo objeto Libros con los datos actualizados
-        lib = new Libros(txtTitutulo.getText(), txtIsbn.getText(), txtGenero.getText(), idAutor);
-
-        // Llamar al método para actualizar el libro usando el título original
-        if (conectar.actualizarL(lib)) {
-           JOptionPane.showMessageDialog(rootPane, "Libro modificado exitosamente");
-       } else {
-           JOptionPane.showMessageDialog(rootPane, "Libro no modificado exitosamente");
-       }
-    conectar.cerrarConexion();
-    llenarTabla();*/
-        
-    // Recoger los datos de los campos del formulario
-    int idLibro = Integer.parseInt(txtIdLibro.getText());
-    String titulo = txtTitulo.getText();
-    String isbn = txtIsbn.getText();
-    String genero = txtGenero.getText();
-    int autor = cmbAutor.getSelectedIndex();
-
-    // Crear una instancia de LibrosModificar
-    LibrosModificar libroModificado = new LibrosModificar(idLibro, titulo, isbn, genero, autor);
-    // Actualizar el libro en la base de datos  
-    DatosLibros datosLibros = new DatosLibros();
-    boolean exito = datosLibros.actualizarLibro(libroModificado);
-    datosLibros.cerrarConexion(); // Asegúrate de cerrar la conexión después de usarla
-
-    if (exito) {
-    JOptionPane.showMessageDialog(null, "Libro actualizado con éxito.");
-    } 
-    else {
-    JOptionPane.showMessageDialog(null, "Error al actualizar el libro.");
-    }
-    
-    llenarTabla();
-    
-    }//GEN-LAST:event_btnModificarActionPerformed
-
 
     
     private void txtIdLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdLibroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdLibroActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        if(txtIdLibro.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar el ID libro", "ID libro", HEIGHT);
+            txtTitulo.grabFocus();
+            return;
+        }  
+        
+
+
         DatosLibros datosLibros = new DatosLibros();  // Crear una instancia de DatosLibros
 // Recoger los valores de los campos del formulario
     String titulo = txtTitulo.getText();      // Campo de texto para el título
@@ -487,7 +445,7 @@ public class frmLibros extends javax.swing.JFrame {
 
     // Cerrar la conexión a la base de datos
     datosLibros.cerrarConexion();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnModificarActionPerformed
     
     //llenar tabla
     private DefaultTableModel tabla;
@@ -560,7 +518,7 @@ public class frmLibros extends javax.swing.JFrame {
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> cmbAutor;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
