@@ -331,6 +331,7 @@ public class frmRegistroUsuarios extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         frmPrincipalBiblioteca pr = new frmPrincipalBiblioteca();
+        this.dispose();
         pr.setLocationRelativeTo(null);
         pr.setVisible(true);
         pr.setExtendedState(JFrame.MAXIMIZED_BOTH); //maximisamos formulario principal

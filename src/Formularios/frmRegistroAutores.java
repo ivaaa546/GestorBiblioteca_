@@ -222,6 +222,7 @@ public class frmRegistroAutores extends javax.swing.JFrame {
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         frmPrincipalBiblioteca pr = new frmPrincipalBiblioteca();
+        this.dispose();
        pr.setLocationRelativeTo(null);
        pr.setVisible(true);
        pr.setExtendedState(JFrame.MAXIMIZED_BOTH); //maximisamos formulario principal
