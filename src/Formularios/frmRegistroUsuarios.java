@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+
 /**
  *
  * @author pc
@@ -154,50 +155,52 @@ public class frmRegistroUsuarios extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addComponent(jLabel2)
+                        .addGap(212, 212, 212))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(195, 195, 195))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel5))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(73, 73, 73)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3)
-                                            .addComponent(Dirección))
-                                        .addGap(18, 18, 18))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(16, 16, 16)))
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtTelefono)
-                                    .addComponent(cmbTipo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(btnNuevoRegistro)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(73, 73, 73)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(Dirección))
+                                .addGap(18, 18, 18))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(16, 16, 16)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtTelefono)
+                            .addComponent(cmbTipo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(41, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(btnNuevoRegistro)
+                .addGap(53, 53, 53)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(120, 120, 120))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,42 +234,17 @@ public class frmRegistroUsuarios extends javax.swing.JFrame {
                             .addComponent(Dirección, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevoRegistro)
                     .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelar))
-                .addGap(34, 34, 34))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        String nombre, apellido, tipo_usuario, telefono, fecha, direccion;
-        int edad ;
-        nombre = txtNombre.getText();
-        //tipo_usuario = txtTipoUsuario.getText();
-        apellido= txtApellido.getText();
-        telefono= txtTelefono.getText();
-        fecha= txtFecha.getText();
-        direccion=txtDireccion.getText();
-        tipo_usuario = String.valueOf(cmbTipo.getSelectedItem());
-        
-        
-        //genera a la clase usuario
-        Usuario usu=new Usuario(nombre,apellido,tipo_usuario, telefono, fecha, direccion);
-        DatosUsuarios co = new DatosUsuarios();
-        if(!co.insertUsuario(usu)){
-            JOptionPane.showMessageDialog(rootPane, "No se registro el usuario");
-            return;
-        }
-        JOptionPane.showMessageDialog(rootPane, "Registro correcto");
-        co.cerrarConexion();
-       // limpiar();
-       llenarTabla();
-    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void cmbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoActionPerformed
         // TODO add your handling code here:
@@ -275,13 +253,6 @@ public class frmRegistroUsuarios extends javax.swing.JFrame {
     private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaActionPerformed
-
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-       frmPrincipalBiblioteca pr = new frmPrincipalBiblioteca();
-       pr.setLocationRelativeTo(null);
-       pr.setVisible(true);
-       pr.setExtendedState(JFrame.MAXIMIZED_BOTH); //maximisamos formulario principal
-    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         //obtener la fecha del sistema
@@ -294,12 +265,76 @@ public class frmRegistroUsuarios extends javax.swing.JFrame {
         String.valueOf(mes) +"/"+
         String.valueOf(año);
         txtFecha.setText(fe);
-        llenarTabla();
+        txtNombre.grabFocus();
+       llenarTabla();
     }//GEN-LAST:event_formWindowOpened
 
     private void btnNuevoRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoRegistroActionPerformed
         limpiar();
     }//GEN-LAST:event_btnNuevoRegistroActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+
+        if(txtNombre.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar el nombre de usuario", "Nomre usuarios", HEIGHT);
+            txtNombre.grabFocus();
+            return;
+        }
+        if(txtApellido.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar el apellido de usuario", "Apellido usuarios", HEIGHT);
+            txtApellido.grabFocus();
+            return;
+        }
+
+        if(txtTelefono.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar el numero de celular de usuario", "Celular usuarios", HEIGHT);
+            txtTelefono.grabFocus();
+            return;
+        }
+        if(txtDireccion.getText().equals(""))
+        {
+            if(cmbTipo.getSelectedIndex()==0)
+            {
+                JOptionPane.showMessageDialog(rootPane, "Debe selecionar el rol del usuario", "Rol Usuario", HEIGHT);
+                cmbTipo.grabFocus();
+                return;
+            }
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar la dirección de usuario", "Dirección usuarios", HEIGHT);
+            txtDireccion.grabFocus();
+            return;
+        }
+        String nombre, apellido, tipo_usuario, telefono, fecha, direccion;
+        int edad ;
+        nombre = txtNombre.getText();
+        //tipo_usuario = txtTipoUsuario.getText();
+        apellido= txtApellido.getText();
+        telefono= txtTelefono.getText();
+        fecha= txtFecha.getText();
+        direccion=txtDireccion.getText();
+        tipo_usuario = String.valueOf(cmbTipo.getSelectedItem());
+
+        //genera a la clase usuario
+        Usuario usu=new Usuario(nombre,apellido,tipo_usuario, telefono, fecha, direccion);
+        DatosUsuarios co = new DatosUsuarios();
+        if(!co.insertUsuario(usu)){
+            JOptionPane.showMessageDialog(rootPane, "No se registro el usuario");
+            return;
+        }
+        JOptionPane.showMessageDialog(rootPane, "Registro correcto");
+        co.cerrarConexion();
+        // limpiar();
+        llenarTabla();
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        frmPrincipalBiblioteca pr = new frmPrincipalBiblioteca();
+        pr.setLocationRelativeTo(null);
+        pr.setVisible(true);
+        pr.setExtendedState(JFrame.MAXIMIZED_BOTH); //maximisamos formulario principal
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void limpiar(){
       txtNombre.setText("");
@@ -310,7 +345,6 @@ public class frmRegistroUsuarios extends javax.swing.JFrame {
       txtNombre.grabFocus();
     }
     
-    //metodo para llenar la tabla
     private DefaultTableModel tabla;
     
     private void llenarTabla() {
