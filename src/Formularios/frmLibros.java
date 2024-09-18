@@ -9,8 +9,6 @@ import Clases.DatosUsuarios;
 import Clases.Libros;
 import Clases.LibrosModificar;
 import Clases.Usuario;
-import com.sun.jdi.connect.spi.Connection;
-import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -19,7 +17,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
-
 
 /**
  *
@@ -432,7 +429,7 @@ public class frmLibros extends javax.swing.JFrame {
     llenarTabla();*/
         
     // Recoger los datos de los campos del formulario
-    int idLibro = Integer.parseInt(txtIdLibro.getText());
+    /*int idLibro = Integer.parseInt(txtIdLibro.getText());
     String titulo = txtTitulo.getText();
     String isbn = txtIsbn.getText();
     String genero = txtGenero.getText();
@@ -452,7 +449,7 @@ public class frmLibros extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(null, "Error al actualizar el libro.");
     }
     
-    llenarTabla();
+    llenarTabla();*/
     
     }//GEN-LAST:event_btnModificarActionPerformed
 
@@ -464,9 +461,8 @@ public class frmLibros extends javax.swing.JFrame {
 
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
     DatosLibros datosLibros = new DatosLibros();  // Crear una instancia de DatosLibros
-    // Recoger los valores de los campos del formulario
+// Recoger los valores de los campos del formulario
     String titulo = txtTitulo.getText();      // Campo de texto para el título
     String isbn = txtIsbn.getText();          // Campo de texto para el ISBN
     String genero = txtGenero.getText();      // Campo de texto para el género
@@ -479,7 +475,6 @@ public class frmLibros extends javax.swing.JFrame {
     Libros libro = new Libros(titulo, isbn, genero, idAutor);
 
     // Llamar al método para editar el libro
-    
     boolean exito = datosLibros.editarLibro(libro, idLibro);  // Editar el libro
 
     // Verificar si la edición fue exitosa

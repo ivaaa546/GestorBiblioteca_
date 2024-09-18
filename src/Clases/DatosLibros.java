@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Clases;
-
+import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -239,8 +239,26 @@ public class DatosLibros {
         Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
         return false;
     }
+   }
+   
+   public boolean actualizarLibro(LibrosModificar libro) {
+    try {
+        // Construye la sentencia SQL para actualizar el libro
+        String sql = "UPDATE libros SET "
+                   + "titulo = '" + libro.getTitulo() + "', "
+                   + "isbn = '" + libro.getIsbn() + "', "
+                   + "genero = '" + libro.getGenero() + "', "
+                   + "id_autor = " + libro.getAutor() + " "
+                   + "WHERE id_libro = " + libro.getId_libro();
 
-}
+        Statement st = con.createStatement();
+        int filasAfectadas = st.executeUpdate(sql);
+        return filasAfectadas > 0; // Retorna true si se actualizó al menos una fila
+    } catch (SQLException ex) {
+        Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
+        return false;
+    }
+   }
    
    // Método para editar un libro en la base de datos
 public boolean editarLibro(Libros libro, int idLibro) {
@@ -269,32 +287,13 @@ public boolean editarLibro(Libros libro, int idLibro) {
             System.out.println("No se encontró un libro con el ID proporcionado.");
             return false;
         }
-
-   }
-   
-   public boolean actualizarLibro(LibrosModificar libro) {
-    try {
-        // Construye la sentencia SQL para actualizar el libro
-        String sql = "UPDATE libros SET "
-                   + "titulo = '" + libro.getTitulo() + "', "
-                   + "isbn = '" + libro.getIsbn() + "', "
-                   + "genero = '" + libro.getGenero() + "', "
-                   + "id_autor = " + libro.getAutor() + " "
-                   + "WHERE id_libro = " + libro.getId_libro();
-
-        Statement st = con.createStatement();
-        int filasAfectadas = st.executeUpdate(sql);
-        return filasAfectadas > 0; // Retorna true si se actualizó al menos una fila
-
     } catch (SQLException ex) {
         Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
         return false;
     }
-
 }
 
-   }
-
+}
 
 
 
