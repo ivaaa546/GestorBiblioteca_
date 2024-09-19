@@ -202,27 +202,6 @@ public class DatosLibros {
             Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
         }return false;
    }
-
-   //actualizar libro
-  // Método para actualizar un libro en la base de datos
-    /*public boolean actualizarL(Libros lib) {
-        try {
-            // SQL para actualizar el libro, buscando por el título original
-            String sql = "UPDATE libros SET titulo = '" + lib.getTitulo() + "', "
-                       + "isbn = '" + lib.getIsbn() + "', "
-                       + "genero = '" + lib.getGenero() + "', "
-                       + "id_autor = '" + lib.getAutor() + "' "
-                       + "WHERE titulo = '" + lib.getTitulo()+ "'";
-
-            Statement st = con.createStatement();
-            st.executeUpdate(sql);
-            return true;
-
-        } catch (SQLException ex) {
-            Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        }
-    }   */
    public boolean actualizarL(Libros lib) {
     try {
         String sql = "UPDATE libros SET id_libro = '" + lib.getTitulo()+ "', "
@@ -261,7 +240,7 @@ public class DatosLibros {
    }
    
    // Método para editar un libro en la base de datos
-public boolean editarLibro(Libros libro, int idLibro) {
+    public boolean editarLibro(Libros libro, int idLibro) {
     try {
         // Consulta SQL para actualizar los datos del libro
         String sql = "UPDATE libros SET titulo = ?, isbn = ?, genero = ?, id_autor = ? WHERE id_libro = ?";
@@ -292,6 +271,7 @@ public boolean editarLibro(Libros libro, int idLibro) {
         return false;
     }
 }
+
 
 }
 
