@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -344,6 +346,7 @@ public class frmLibros extends javax.swing.JFrame {
     
     DatosLibros conectar = new DatosLibros();
     int idAutor = conectar.id_autor(String.valueOf(cmbAutor.getSelectedItem()));
+    
     Libros lib= new Libros(titulo,isbn,genero,idAutor);
     
     if(conectar.insertarLibro(lib))
@@ -369,7 +372,7 @@ public class frmLibros extends javax.swing.JFrame {
         }
        
        DatosLibros co= new DatosLibros();
-       Libros lib = co.buscarL(txtTitulo.getText());
+       Libros lib = co.buscarLibroTitulo(txtTitulo.getText());
        
         if(lib==null){
         JOptionPane.showMessageDialog(rootPane, "Libro no encotrado");
@@ -394,37 +397,85 @@ public class frmLibros extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
     
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-    String titulo_ =JOptionPane.showInputDialog("Ingrese el nombre del libro");
-       /* if(txtTitulo.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(rootPane, "Debe ingresar el titulo del libro", "Titulo libro", HEIGHT);
-            txtTitulo.grabFocus();
-            return;
-        } */
 
-       String titulo = txtTitulo.getText();
-       DatosLibros co= new DatosLibros();
-       Libros lib= co.buscarL(titulo_);
-       if(lib == null){
-        JOptionPane.showMessageDialog(rootPane, "Libro no encotrado");
-        txtTitulo.grabFocus();
+      // Pedir al usuario que ingrese el criterio de búsqueda
+    String valorBusqueda = JOptionPane.showInputDialog("Ingrese el valor para buscar (Título, Autor, ISBN o Género):");
+    
+    // Validar que el usuario ingresó algo
+    if (valorBusqueda == null || valorBusqueda.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(rootPane, "Debe ingresar un valor para buscar", "Búsqueda", HEIGHT);
+        return;
+    }
+    
+    // Preguntar al usuario qué tipo de criterio utilizará para la búsqueda
+    String[] opciones = {"Título", "Autor", "ISBN", "Género"};
+    String criterio = (String) JOptionPane.showInputDialog(rootPane, "Seleccione el criterio de búsqueda:", 
+                            "Criterio de Búsqueda", JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
+
+    // Validar que el usuario seleccionó un criterio
+    if (criterio == null) {
+        JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un criterio de búsqueda", "Criterio", HEIGHT);
+        return;
+    }
+
+    DatosLibros co = new DatosLibros();
+    List<Libros> librosEncontrados = new ArrayList<>();
+
+    // Buscar según el criterio seleccionado
+    switch (criterio) {
+        case "Título":
+            librosEncontrados = co.buscarLibros("titulo", valorBusqueda);
+            break;
+        case "Autor":
+            int idAutor = co.buscarIdAutor(valorBusqueda); // Se asume que buscarIdAutor devuelve el ID del autor
+            if (idAutor != -1) {
+                librosEncontrados = co.buscarLibros("id_autor", String.valueOf(idAutor));
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Autor no encontrado");
+                co.cerrarConexion();
+                return;
+            }
+            break;
+        case "ISBN":
+            librosEncontrados = co.buscarLibros("isbn", valorBusqueda);
+            break;
+        case "Género":
+            librosEncontrados = co.buscarLibros("genero", valorBusqueda);
+            break;
+        default:
+            JOptionPane.showMessageDialog(rootPane, "Criterio no válido");
+            co.cerrarConexion();
+            return;
+    }
+    
+    // Si no se encontraron libros, mostrar mensaje
+    if (librosEncontrados.isEmpty()) {
+        JOptionPane.showMessageDialog(rootPane, "No se encontraron libros para el criterio de búsqueda");
         co.cerrarConexion();
         return;
-        }
-       String nombreAutor = co.nombreAutor(lib.getAutor());
-               
-       txtTitulo.setText(lib.getTitulo());
-       txtIsbn.setText(lib.getIsbn());
-       txtGenero.setText(lib.getGenero());
-       cmbAutor.setSelectedItem(nombreAutor);
-       btnModificar.setEnabled(true);
-       txtTitulo.setEnabled(true);
-       txtIsbn.setEnabled(true);
-       txtIdLibro.setEnabled(true);
-       txtGenero.setEnabled(true);
-       cmbAutor.setEnabled(true);
-       btnEliminar.setEnabled(true);
-       btnAgregar.setEnabled(false);
+    }
+
+    // Tomar el primer libro de la lista para mostrarlo en el formulario
+    Libros lib = librosEncontrados.get(0);
+    String nombreAutor = co.nombreAutor(lib.getAutor());
+
+    // Mostrar los datos del libro en los campos del formulario
+    txtTitulo.setText(lib.getTitulo());
+    txtIsbn.setText(lib.getIsbn());
+    txtGenero.setText(lib.getGenero());
+    cmbAutor.setSelectedItem(nombreAutor);
+
+    // Habilitar botones y campos para modificar/eliminar
+    btnModificar.setEnabled(true);
+    txtTitulo.setEnabled(true);
+    txtIsbn.setEnabled(true);
+    txtIdLibro.setEnabled(true);
+    txtGenero.setEnabled(true);
+    cmbAutor.setEnabled(true);
+    btnEliminar.setEnabled(true);
+    btnAgregar.setEnabled(false);
+
+    co.cerrarConexion();
        
     }//GEN-LAST:event_btnBuscarActionPerformed
     

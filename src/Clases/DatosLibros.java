@@ -11,6 +11,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JComboBox;
 
 /**
@@ -58,7 +60,7 @@ public class DatosLibros {
             return null;
         }
     
-        }
+    }
     
     //cargar en el combox
     public void llenarCombox(JComboBox combo)
@@ -165,7 +167,7 @@ public class DatosLibros {
    }
    
    //metodo para buscar
-   public Libros buscarL(String titulo)
+   public Libros buscarLibroTitulo(String titulo)
    {
         try {
             Libros lib= null;
@@ -189,6 +191,51 @@ public class DatosLibros {
             return null;
         }
    }
+    //Buscar libros por título, autor, ISBN o género.
+   public List<Libros> buscarLibros(String criterio, String valor) {
+    List<Libros> librosEncontrados = new ArrayList<>();
+    
+    try {
+        String sql = "SELECT * FROM libros WHERE " + criterio + " = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, valor); // Establecer el valor para la búsqueda
+        ResultSet rs = pst.executeQuery();
+
+        // Recorrer el resultado y agregar cada libro encontrado a la lista
+        while (rs.next()) {
+            Libros libro = new Libros(
+                rs.getString("titulo"),
+                rs.getString("isbn"),
+                rs.getString("genero"),
+                rs.getInt("id_autor")
+            );
+            librosEncontrados.add(libro);
+        }
+
+    } catch (SQLException ex) {
+        Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+    return librosEncontrados;
+}
+   //buscar el ID autor
+   public int buscarIdAutor(String nombreAutor) {
+    try {
+        String sql = "SELECT id_autor FROM autores WHERE nombre = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, nombreAutor);
+        ResultSet rs = pst.executeQuery();
+        
+        if (rs.next()) {
+            return rs.getInt("id_autor");
+        }
+
+    } catch (SQLException ex) {
+        Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return -1; // Retorna -1 si no se encuentra el autor
+}
+   
    
    //metodo para eliminar 
    public boolean eliminarLibro(Libros libro)

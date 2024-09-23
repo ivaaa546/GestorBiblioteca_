@@ -14,13 +14,13 @@ public class Prestamo {
     int id_libro;
     int id_usuario;
     Date fecha_prestamo;
-    Date fecha_devolucion;
+    String estado;
 
-    public Prestamo(int id_libro, int id_usuario, Date fecha_prestamo, Date fecha_devolucion) {
+    public Prestamo(int id_libro, int id_usuario, Date fecha_prestamo, String estado) {
         this.id_libro = id_libro;
         this.id_usuario = id_usuario;
         this.fecha_prestamo = fecha_prestamo;
-        this.fecha_devolucion = fecha_devolucion;
+        this.estado = estado;
     }
 
     public int getId_libro() {
@@ -47,13 +47,17 @@ public class Prestamo {
         this.fecha_prestamo = fecha_prestamo;
     }
 
-    public Date getFecha_devolucion() {
-        return fecha_devolucion;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setFecha_devolucion(Date fecha_devolucion) {
-        this.fecha_devolucion = fecha_devolucion;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
+
+   
+
+   
     
     
 }
