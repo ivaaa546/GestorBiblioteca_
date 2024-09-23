@@ -15,6 +15,8 @@ import javax.swing.JComboBox;
 import java.sql.PreparedStatement;
 import Clases.Prestamo;
 import Clases.Devolucion;
+import Clases.Multas;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -189,12 +191,123 @@ public class DatosPretamoDevoluciones {
     }
         
      }
+     //insertar multas
+     public boolean insertarMultar(Multas multa)
+     {  String sql = "INSERT INTO multas (id_prestamo, monto) VALUES (?, ?)";
+        try(PreparedStatement pst = con.prepareStatement(sql)) {
+        pst.setInt(1, multa.getId_prestamo());
+        pst.setDouble(2, multa.getMonto());
+        pst.executeUpdate();
+        return true;     
+        } catch (SQLException ex) {
+            Logger.getLogger(DatosPretamoDevoluciones.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+     }
      
-     public double multa(Date fechaPrestamo, Date fechaDevolucion, double multaPorDia){
-            
+     public double multa(Date fechaPrestamo, Date fechaDevolucion){
+         long MILLISECONDS_IN_A_DAY = 86400000;
+         int DIAS_MAXIMO = 30;
+         double MULTA_POR_DIA = 10.0;
+         // Calcular la diferencia en días entre la fecha de préstamo y la fecha de devolución
+        long diffInMillies = fechaDevolucion.getTime() - fechaPrestamo.getTime();
+        long diasDePrestamo = TimeUnit.MILLISECONDS.toDays(diffInMillies);
+        
+        // Si se pasa de los 30 días, calcular la multa
+        if (diasDePrestamo > DIAS_MAXIMO) {
+            long diasRetraso = diasDePrestamo - DIAS_MAXIMO;
+            return diasRetraso * MULTA_POR_DIA;
+        }
          
      return 0;
      
      }
     
+   public PrestamoBuscar buscarPrestamo(int id_prestamo)
+   {
+        try {
+            PrestamoBuscar prestamo= null;
+            String sql= "Select * from prestamos where id_prestamo= '" + id_prestamo+ "' ";
+            // Permite preparar la base de datos para enviarle consultas
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            
+            if (rs.next()) {
+            prestamo = new PrestamoBuscar(
+                rs.getInt("id_prestamo"),
+                rs.getInt("id_libro"), 
+                rs.getInt("id_usuario"),
+                rs.getDate("fecha_prestamo"),
+                rs.getString("estado")
+            );
+            }
+             return prestamo;
+        } catch (SQLException ex) {
+            Logger.getLogger(DatosPretamoDevoluciones.class.getName()).log(Level.SEVERE, null, ex);
+                return null;
+        }
+   
+   }
+   
+   //para buscar nombre libro por el combobox sirve para buscar    
+    public String buscarLibro(int codigo)
+    {
+        try {
+            String sql= "Select titulo  from libros where id_libro ='" + codigo + "'";
+            Statement st= con.createStatement();
+            ResultSet rs=st.executeQuery(sql);
+            
+            if(rs.next())
+            {
+            
+                return rs.getString("titulo");
+            
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public String buscarUsuario(int codigo)
+    {
+        try {
+            String sql= "Select nombre  from usuarios where id_usuario ='" + codigo + "'";
+            Statement st= con.createStatement();
+            ResultSet rs=st.executeQuery(sql);
+            
+            if(rs.next())
+            {
+            
+                return rs.getString("nombre");
+            
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public String buscarMulta(int codigo)
+    {
+        try {
+            String sql= "Select monto  from multas where id_prestamo ='" + codigo + "'";
+            Statement st= con.createStatement();
+            ResultSet rs=st.executeQuery(sql);
+            
+            if(rs.next())
+            {
+            
+                return rs.getString("monto");
+            
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "Sin multa";
+    }
+   
 }

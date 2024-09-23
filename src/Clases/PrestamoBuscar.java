@@ -8,19 +8,29 @@ import java.util.Date;
 
 /**
  *
- * @author josue
+ * @author pc
  */
-public class Prestamo {
+public class PrestamoBuscar {
+    int id_prestamo;
     int id_libro;
     int id_usuario;
     Date fecha_prestamo;
     String estado;
 
-    public Prestamo(int id_libro, int id_usuario, Date fecha_prestamo, String estado) {
+    public PrestamoBuscar(int id_prestamo, int id_libro, int id_usuario, Date fecha_prestamo, String estado) {
+        this.id_prestamo = id_prestamo;
         this.id_libro = id_libro;
         this.id_usuario = id_usuario;
         this.fecha_prestamo = fecha_prestamo;
         this.estado = estado;
+    }
+
+    public int getId_prestamo() {
+        return id_prestamo;
+    }
+
+    public void setId_prestamo(int id_prestamo) {
+        this.id_prestamo = id_prestamo;
     }
 
     public int getId_libro() {
@@ -54,14 +64,6 @@ public class Prestamo {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    
-
-    
-
-   
-
-   
     
     
 }

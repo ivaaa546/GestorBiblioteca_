@@ -35,6 +35,7 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mnuPrestamosDevoluciones = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,6 +75,14 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
             }
         });
         jMenu1.add(mnuPrestamosDevoluciones);
+
+        jMenuItem1.setText("Multas");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
 
@@ -120,11 +129,18 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
 
     private void mnuPrestamosDevolucionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuPrestamosDevolucionesActionPerformed
         // TODO add your handling code here:
-        frmPrestamos prestamos = new frmPrestamos();
+        frmPrestamosDevoluciones prestamos = new frmPrestamosDevoluciones();
         this.setVisible(false);//ocultar formulario actual
         prestamos.setLocationRelativeTo(null);
         prestamos.setVisible(true);
     }//GEN-LAST:event_mnuPrestamosDevolucionesActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        frmMultas usu = new frmMultas();
+        this.setVisible(false);//ocultar formulario actual
+        usu.setLocationRelativeTo(null);
+        usu.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,6 +180,7 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;

@@ -170,7 +170,7 @@ public class DatosLibros {
    public Libros buscarLibroTitulo(String titulo)
    {
         try {
-            Libros lib= null;
+                Libros lib= null;
             String sql= "Select * from libros where titulo= '" + titulo+ "' ";
             
             // Permite preparar la base de datos para enviarle consultas

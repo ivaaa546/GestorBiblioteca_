@@ -9,20 +9,20 @@ package Clases;
  * @author pc
  */
 public class Multas {
-    int id_prestamo;
+    int Id_prestamo;
     double monto;
 
-    public Multas(int id_prestamo, double monto) {
-        this.id_prestamo = id_prestamo;
+    public Multas(int Id_prestamo, double monto) {
+        this.Id_prestamo = Id_prestamo;
         this.monto = monto;
     }
 
     public int getId_prestamo() {
-        return id_prestamo;
+        return Id_prestamo;
     }
 
-    public void setId_prestamo(int id_prestamo) {
-        this.id_prestamo = id_prestamo;
+    public void setId_prestamo(int Id_prestamo) {
+        this.Id_prestamo = Id_prestamo;
     }
 
     public double getMonto() {
@@ -32,6 +32,14 @@ public class Multas {
     public void setMonto(double monto) {
         this.monto = monto;
     }
+
+   
+
+    
+
+   
+
+    
     
     
 }

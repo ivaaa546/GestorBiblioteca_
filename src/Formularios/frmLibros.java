@@ -388,7 +388,7 @@ public class frmLibros extends javax.swing.JFrame {
         }
         
         else {
-            JOptionPane.showMessageDialog(rootPane, "Libro borrado");
+            JOptionPane.showMessageDialog(rootPane, "Libro no borrado");
         }
         llenarTabla();
         
