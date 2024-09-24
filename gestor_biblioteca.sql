@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-09-2024 a las 09:09:50
+-- Tiempo de generación: 24-09-2024 a las 07:06:14
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -44,7 +44,8 @@ INSERT INTO `autores` (`id_autor`, `nombre`, `nacionalidad`, `fecha_nacimiento`,
 (6, 'Milton Friedman', 'estadounidense', '1912-07-31 00:00:00', '1946-11-16 00:00:00'),
 (7, 'Nicolás Bernardo de Maquiavelo', 'italiana', '1469-05-31 00:00:00', '1527-06-21 00:00:00'),
 (8, 'Jose Chub', 'chapin', '2005-09-08 00:00:00', '2100-09-13 00:00:00'),
-(9, 'Adolf Hitler', 'alemana', '1889-09-20 00:00:00', '1945-07-19 00:00:00');
+(9, 'Adolf Hitler', 'alemana', '1889-09-20 00:00:00', '1945-07-19 00:00:00'),
+(10, 'Darwin', 'inglesa', '1885-09-21 00:00:00', '1930-09-23 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -68,7 +69,8 @@ INSERT INTO `libros` (`id_libro`, `titulo`, `isbn`, `genero`, `id_autor`) VALUES
 (14, 'El capital ', '2342342', 'Comedia', 5),
 (16, 'Libre para elegir', '42342342342', 'Economia', 6),
 (20, 'Manifiesto Comunista', '213123123123', 'Comedia', 5),
-(27, 'Mi Lucha', '2341234', 'Autobiografía', 9);
+(27, 'Mi Lucha', '2341234', 'Autobiografía', 9),
+(32, 'Teroria de la evolucion', '2342342', 'Ciencia', 10);
 
 -- --------------------------------------------------------
 
@@ -108,8 +110,18 @@ CREATE TABLE `mostralibros` (
 CREATE TABLE `multas` (
   `id_multa` int(11) NOT NULL,
   `id_prestamo` int(11) DEFAULT NULL,
-  `monto` decimal(10,2) NOT NULL
+  `monto` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `multas`
+--
+
+INSERT INTO `multas` (`id_multa`, `id_prestamo`, `monto`) VALUES
+(19, 29, 70.00),
+(20, 18, 70.00),
+(21, 31, 310.00),
+(22, 34, 310.00);
 
 -- --------------------------------------------------------
 
@@ -131,10 +143,16 @@ CREATE TABLE `prestamos` (
 --
 
 INSERT INTO `prestamos` (`id_prestamo`, `id_libro`, `id_usuario`, `fecha_prestamo`, `fecha_devolucion`, `estado`) VALUES
-(12, 14, 10, '2024-09-22', '2024-09-23', 'Devuelto'),
-(13, 16, 6, '2024-09-22', '2024-09-23', 'Devuelto'),
-(16, 16, 6, '2024-09-22', '2024-09-23', 'Devuelto'),
-(18, 20, 7, '2024-09-23', '2024-09-23', 'Devuelto');
+(18, 20, 7, '2024-09-23', '2024-10-30', 'Devuelto'),
+(20, 20, 11, '2024-09-23', '2024-10-24', 'Prestamo'),
+(21, 32, 7, '2024-09-23', '2024-10-24', 'Devuelto'),
+(29, 20, 7, '2024-09-23', '2024-10-30', 'Devuelto'),
+(30, 14, 10, '2024-09-23', '2024-09-25', 'Prestamo'),
+(31, 14, 8, '2024-09-23', '2024-11-23', 'Prestamo'),
+(32, 14, 7, '2024-09-23', NULL, 'Prestamo'),
+(34, 14, 8, '2024-09-23', '2024-11-23', 'Prestamo'),
+(35, 16, 6, '2024-08-23', NULL, 'Prestamo'),
+(36, 16, 7, '2024-08-21', NULL, 'Prestamo');
 
 -- --------------------------------------------------------
 
@@ -166,6 +184,58 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre`, `tipo_usuario`, `apellido`, `num
 -- --------------------------------------------------------
 
 --
+-- Estructura Stand-in para la vista `vista_libros_mas_prestados`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `vista_libros_mas_prestados` (
+`id_libro` int(11)
+,`titulo` varchar(255)
+,`cantidad_prestamos` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `vista_libros_vencidos`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `vista_libros_vencidos` (
+`id_libro` int(11)
+,`titulo` varchar(255)
+,`fecha_prestamo` date
+,`dias_vencidos` int(7)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `vista_multas`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `vista_multas` (
+`id_multa` int(11)
+,`id_prestamo` int(11)
+,`fecha_prestamo` date
+,`fecha_devolucion` date
+,`estado` varchar(50)
+,`monto` decimal(10,2)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `vista_usuarios_mas_prestamos`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `vista_usuarios_mas_prestamos` (
+`id_usuario` int(11)
+,`nombre` varchar(255)
+,`cantidad_prestamos` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura para la vista `mostaprestamos`
 --
 DROP TABLE IF EXISTS `mostaprestamos`;
@@ -180,6 +250,42 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `mostralibros`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `mostralibros`  AS SELECT `b`.`id_libro` AS `id_libro`, `b`.`titulo` AS `titulo`, `b`.`isbn` AS `isbn`, `b`.`genero` AS `genero`, `a`.`nombre` AS `Autores` FROM (`libros` `b` join `autores` `a` on(`b`.`id_autor` = `a`.`id_autor`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `vista_libros_mas_prestados`
+--
+DROP TABLE IF EXISTS `vista_libros_mas_prestados`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vista_libros_mas_prestados`  AS SELECT `l`.`id_libro` AS `id_libro`, `l`.`titulo` AS `titulo`, count(`p`.`id_prestamo`) AS `cantidad_prestamos` FROM (`libros` `l` join `prestamos` `p` on(`l`.`id_libro` = `p`.`id_libro`)) WHERE `p`.`estado` = 'devuelto' GROUP BY `l`.`id_libro` ORDER BY count(`p`.`id_prestamo`) DESC ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `vista_libros_vencidos`
+--
+DROP TABLE IF EXISTS `vista_libros_vencidos`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vista_libros_vencidos`  AS SELECT `l`.`id_libro` AS `id_libro`, `l`.`titulo` AS `titulo`, `p`.`fecha_prestamo` AS `fecha_prestamo`, to_days(curdate()) - to_days(`p`.`fecha_prestamo` + interval 15 day) AS `dias_vencidos` FROM (`prestamos` `p` join `libros` `l` on(`p`.`id_libro` = `l`.`id_libro`)) WHERE `p`.`estado` = 'Prestamo' AND `p`.`fecha_prestamo` + interval 15 day < curdate() ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `vista_multas`
+--
+DROP TABLE IF EXISTS `vista_multas`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vista_multas`  AS SELECT `m`.`id_multa` AS `id_multa`, `p`.`id_prestamo` AS `id_prestamo`, `p`.`fecha_prestamo` AS `fecha_prestamo`, `p`.`fecha_devolucion` AS `fecha_devolucion`, `p`.`estado` AS `estado`, `m`.`monto` AS `monto` FROM (`multas` `m` join `prestamos` `p` on(`m`.`id_prestamo` = `p`.`id_prestamo`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `vista_usuarios_mas_prestamos`
+--
+DROP TABLE IF EXISTS `vista_usuarios_mas_prestamos`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vista_usuarios_mas_prestamos`  AS SELECT `u`.`id_usuario` AS `id_usuario`, `u`.`nombre` AS `nombre`, count(`p`.`id_prestamo`) AS `cantidad_prestamos` FROM (`usuarios` `u` join `prestamos` `p` on(`u`.`id_usuario` = `p`.`id_usuario`)) WHERE `p`.`estado` = 'devuelto' GROUP BY `u`.`id_usuario` ORDER BY count(`p`.`id_prestamo`) DESC ;
 
 --
 -- Índices para tablas volcadas
@@ -228,25 +334,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `autores`
 --
 ALTER TABLE `autores`
-  MODIFY `id_autor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_autor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `multas`
 --
 ALTER TABLE `multas`
-  MODIFY `id_multa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_multa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
-  MODIFY `id_prestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_prestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
