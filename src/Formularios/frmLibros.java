@@ -543,6 +543,7 @@ public class frmLibros extends javax.swing.JFrame {
         limpiar();
         btnModificar.setEnabled(false);
         btnEliminar.setEnabled(false);
+        txtIdLibro.setEnabled(false);
     }//GEN-LAST:event_btnNuevoActionPerformed
     
     //llenar tabla

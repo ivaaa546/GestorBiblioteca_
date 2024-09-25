@@ -245,6 +245,7 @@ public class DatosLibros {
             //permite preparar la base de datos para enviarle consultas
             Statement st= con.createStatement();
             st.executeUpdate(sql);
+            return true;
         } catch (SQLException ex) {
             Logger.getLogger(DatosLibros.class.getName()).log(Level.SEVERE, null, ex);
         }return false;
