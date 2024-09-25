@@ -50,6 +50,7 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
 
         jMenu1.setText("Registro");
 
+        mnuRegistrarLibros.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuRegistrarLibros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuarios.png"))); // NOI18N
         mnuRegistrarLibros.setText("Registrar Usuarios");
         mnuRegistrarLibros.addActionListener(new java.awt.event.ActionListener() {
@@ -60,6 +61,7 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
         jMenu1.add(mnuRegistrarLibros);
         jMenu1.add(jSeparator2);
 
+        mnuRegistrarAutores.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuRegistrarAutores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/autor.png"))); // NOI18N
         mnuRegistrarAutores.setText("Registrar Autores");
         mnuRegistrarAutores.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +72,7 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
         jMenu1.add(mnuRegistrarAutores);
         jMenu1.add(jSeparator3);
 
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Libros.png"))); // NOI18N
         jMenuItem3.setText("Registrar Libros");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -80,6 +83,7 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
         jMenu1.add(jMenuItem3);
         jMenu1.add(jSeparator1);
 
+        mnuPrestamosDevoluciones.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuPrestamosDevoluciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Libros prestados.png"))); // NOI18N
         mnuPrestamosDevoluciones.setText("Registrar Préstamos y Devoluciones");
         mnuPrestamosDevoluciones.addActionListener(new java.awt.event.ActionListener() {
@@ -89,6 +93,7 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
         });
         jMenu1.add(mnuPrestamosDevoluciones);
 
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/multas.png"))); // NOI18N
         jMenuItem1.setText("Multas");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +107,7 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
 
         jMenu2.setText("Reportes");
 
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Reporte.png"))); // NOI18N
         jMenuItem2.setText("Reporte Biblioteca");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {

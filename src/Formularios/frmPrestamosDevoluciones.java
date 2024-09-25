@@ -70,6 +70,7 @@ public class frmPrestamosDevoluciones extends javax.swing.JFrame {
         btnNuevo = new javax.swing.JButton();
         btnNuevaDevolucion = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -109,6 +110,7 @@ public class frmPrestamosDevoluciones extends javax.swing.JFrame {
         jLabel9.setText("Multa");
 
         btnRegistrarPrestamo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnRegistrarPrestamo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar.png"))); // NOI18N
         btnRegistrarPrestamo.setText("Registrar Prestamo");
         btnRegistrarPrestamo.setEnabled(false);
         btnRegistrarPrestamo.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +120,7 @@ public class frmPrestamosDevoluciones extends javax.swing.JFrame {
         });
 
         btnLimpiar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/limpiar.png"))); // NOI18N
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +129,7 @@ public class frmPrestamosDevoluciones extends javax.swing.JFrame {
         });
 
         btnRegresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Anterior.png"))); // NOI18N
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,6 +141,7 @@ public class frmPrestamosDevoluciones extends javax.swing.JFrame {
         cmbEstado.setEnabled(false);
 
         btnRegistrarDevolucion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnRegistrarDevolucion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar.png"))); // NOI18N
         btnRegistrarDevolucion.setText("Registrar Devolución");
         btnRegistrarDevolucion.setEnabled(false);
         btnRegistrarDevolucion.addActionListener(new java.awt.event.ActionListener() {
@@ -168,6 +173,7 @@ public class frmPrestamosDevoluciones extends javax.swing.JFrame {
         txtIdPrestamo.setEnabled(false);
 
         btnNuevo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/adicionar.png"))); // NOI18N
         btnNuevo.setText("Nuevo Prestamo");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,6 +182,7 @@ public class frmPrestamosDevoluciones extends javax.swing.JFrame {
         });
 
         btnNuevaDevolucion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnNuevaDevolucion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Nuevo.png"))); // NOI18N
         btnNuevaDevolucion.setText("Nueva Devolución");
         btnNuevaDevolucion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,6 +191,7 @@ public class frmPrestamosDevoluciones extends javax.swing.JFrame {
         });
 
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lupa.png"))); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.setEnabled(false);
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -192,41 +200,16 @@ public class frmPrestamosDevoluciones extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/biblioteca33.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(101, 101, 101)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(cmbLibro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel8)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel4)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(cmbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(154, 154, 154)
-                                            .addComponent(jLabel1))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel5)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(dcFechaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(0, 0, Short.MAX_VALUE)))
-                            .addGap(194, 194, 194))
-                        .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGap(445, 445, 445)
                             .addComponent(jLabel6)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -234,42 +217,75 @@ public class frmPrestamosDevoluciones extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel9)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtMulta, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(jLabel7)
+                            .addComponent(txtMulta, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(99, 99, 99)
+                            .addComponent(jLabel7)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtIdPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtIdPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(139, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(btnRegistrarPrestamo)
-                .addGap(34, 34, 34)
-                .addComponent(btnRegistrarDevolucion)
-                .addGap(30, 30, 30)
-                .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnNuevaDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(btnRegresar)
-                .addGap(18, 18, 18)
-                .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(150, 150, 150))
+                        .addComponent(btnRegresar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(btnRegistrarPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(btnRegistrarDevolucion)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnNuevaDevolucion))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel11)
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(cmbLibro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cmbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(154, 154, 154)
+                                        .addComponent(jLabel1))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(dcFechaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(194, 194, 194))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIdPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtIdPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -307,8 +323,8 @@ public class frmPrestamosDevoluciones extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiar)
                     .addComponent(btnRegresar)
-                    .addComponent(btnBuscar))
-                .addContainerGap(56, Short.MAX_VALUE))
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -634,6 +650,7 @@ public class frmPrestamosDevoluciones extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser dcFechaDevolucion;
     private com.toedter.calendar.JDateChooser dcFechaPrestamo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

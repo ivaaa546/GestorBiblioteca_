@@ -56,11 +56,13 @@ public class frmReportes extends javax.swing.JFrame {
         btnlibVencidos = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         btnRegresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Anterior.png"))); // NOI18N
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,38 +110,48 @@ public class frmReportes extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabla1);
 
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/biblioteca33.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(300, 300, 300)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(45, 45, 45)
-                            .addComponent(btnLibros)
-                            .addGap(36, 36, 36)
-                            .addComponent(btnUsuarios)
-                            .addGap(35, 35, 35)
-                            .addComponent(btnlibVencidos))
-                        .addComponent(btnRegresar, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRegresar, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel11)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(273, 273, 273)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnLibros)
+                                .addGap(36, 36, 36)
+                                .addComponent(btnUsuarios)
+                                .addGap(35, 35, 35)
+                                .addComponent(btnlibVencidos)))))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLibros)
-                    .addComponent(btnUsuarios)
-                    .addComponent(btnlibVencidos))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnLibros)
+                            .addComponent(btnUsuarios)
+                            .addComponent(btnlibVencidos)))
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -439,6 +451,7 @@ private void llenarTabla3() {
     private javax.swing.JButton btnUsuarios;
     private javax.swing.JButton btnlibVencidos;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla1;
     // End of variables declaration//GEN-END:variables
