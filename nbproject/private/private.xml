@@ -11,14 +11,11 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group/>
         <group>
-            <file>file:/C:/Users/Mariela/Desktop/GestorBiblioteca/src/Formularios/frmLibros.java</file>
-            <file>file:/C:/Users/Mariela/Desktop/GestorBiblioteca/src/Formularios/frmReportes.java</file>
-            <file>file:/C:/Users/Mariela/Desktop/GestorBiblioteca/src/Clases/DatosReportes.java</file>
-            <file>file:/C:/Users/Mariela/Desktop/GestorBiblioteca/src/Clases/DatosUsuarios.java</file>
-        </group>
-        <group>
-            <file>file:/C:/Users/Mariela/Desktop/GestorBiblioteca/src/Formularios/frmReportes.java</file>
+            <file>file:/C:/Users/jossq/OneDrive/Escritorio/Remoto/GestorBiblioteca_/src/Formularios/frmLibros.java</file>
+            <file>file:/C:/Users/jossq/OneDrive/Escritorio/Remoto/GestorBiblioteca_/src/Formularios/frmPrincipalBiblioteca.java</file>
+            <file>file:/C:/Users/jossq/OneDrive/Escritorio/Remoto/GestorBiblioteca_/src/Formularios/frmRegistroUsuarios.java</file>
         </group>
     </open-files>
 </project-private>

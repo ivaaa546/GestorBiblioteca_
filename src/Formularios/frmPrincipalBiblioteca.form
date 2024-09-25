@@ -11,6 +11,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mnuRegistrarLibros">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/usuarios.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Registrar Usuarios"/>
               </Properties>
               <Events>
@@ -21,6 +24,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuRegistrarAutores">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/autor.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Registrar Autores"/>
               </Properties>
               <Events>
@@ -31,6 +37,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/Libros.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Registrar Libros"/>
               </Properties>
               <Events>
@@ -41,6 +50,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuPrestamosDevoluciones">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/Libros prestados.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Registrar Pr&#xe9;stamos y Devoluciones"/>
               </Properties>
               <Events>
@@ -49,6 +61,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/multas.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Multas"/>
               </Properties>
               <Events>
@@ -64,6 +79,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/Reporte.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Reporte Biblioteca"/>
               </Properties>
               <Events>
@@ -98,13 +116,34 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="575" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="228" pref="228" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Component id="jLabel3" alignment="0" pref="560" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="389" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jLabel3" max="32767" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Imagenes/Bienvenidos al programa Gestor de Biblioteca.png"/>
+        </Property>
+      </Properties>
+    </Component>
+  </SubComponents>
 </Form>
