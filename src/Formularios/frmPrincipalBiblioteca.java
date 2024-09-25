@@ -28,6 +28,8 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnuRegistrarLibros = new javax.swing.JMenuItem();
@@ -43,8 +45,12 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Bienvenidos al programa Gestor de Biblioteca.png"))); // NOI18N
+
         jMenu1.setText("Registro");
 
+        mnuRegistrarLibros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuarios.png"))); // NOI18N
         mnuRegistrarLibros.setText("Registrar Usuarios");
         mnuRegistrarLibros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,6 +60,7 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
         jMenu1.add(mnuRegistrarLibros);
         jMenu1.add(jSeparator2);
 
+        mnuRegistrarAutores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/autor.png"))); // NOI18N
         mnuRegistrarAutores.setText("Registrar Autores");
         mnuRegistrarAutores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +70,7 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
         jMenu1.add(mnuRegistrarAutores);
         jMenu1.add(jSeparator3);
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Libros.png"))); // NOI18N
         jMenuItem3.setText("Registrar Libros");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +80,7 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
         jMenu1.add(jMenuItem3);
         jMenu1.add(jSeparator1);
 
+        mnuPrestamosDevoluciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Libros prestados.png"))); // NOI18N
         mnuPrestamosDevoluciones.setText("Registrar Préstamos y Devoluciones");
         mnuPrestamosDevoluciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +89,7 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
         });
         jMenu1.add(mnuPrestamosDevoluciones);
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/multas.png"))); // NOI18N
         jMenuItem1.setText("Multas");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +102,7 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
 
         jMenu2.setText("Reportes");
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Reporte.png"))); // NOI18N
         jMenuItem2.setText("Reporte Biblioteca");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,11 +119,18 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 575, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(228, 228, 228)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 560, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 389, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2))
         );
 
         pack();
@@ -202,6 +220,8 @@ public class frmPrincipalBiblioteca extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
